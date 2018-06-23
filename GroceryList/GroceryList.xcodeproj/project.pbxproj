@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09B2A905532D3E87E36876E7 /* Pods_GroceryListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8D87EEA45D950839C7647 /* Pods_GroceryListUITests.framework */; };
 		23978A684942E7ABAE647286 /* Pods_GroceryListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86422C4D85A9EDFD8C51D1D /* Pods_GroceryListTests.framework */; };
+		5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */; };
 		504DAECB20DE68E000EE1BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DAECA20DE68E000EE1BD6 /* AppDelegate.swift */; };
 		504DAECD20DE68E000EE1BD6 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DAECC20DE68E000EE1BD6 /* BasketViewController.swift */; };
 		504DAED020DE68E000EE1BD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504DAECE20DE68E000EE1BD6 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		08C222DDBA43DA01656646D1 /* Pods-GroceryListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListUITests/Pods-GroceryListUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewControllerUnitTests.swift; sourceTree = "<group>"; };
 		504DAEC720DE68E000EE1BD6 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504DAECA20DE68E000EE1BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		504DAECC20DE68E000EE1BD6 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5022BC8B20DE96EC00F30652 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5022BC8C20DE96F300F30652 /* Basket */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5022BC8C20DE96F300F30652 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
 		504DAEBE20DE68E000EE1BD6 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				504DAEE120DE68E100EE1BD6 /* Info.plist */,
+				5022BC8B20DE96EC00F30652 /* Scenes */,
 			);
 			path = GroceryListTests;
 			sourceTree = "<group>";
@@ -330,6 +349,7 @@
 					};
 					504DAEDA20DE68E100EE1BD6 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 504DAEC620DE68E000EE1BD6;
 					};
 					504DAEE520DE68E100EE1BD6 = {
@@ -476,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +700,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
 				INFOPLIST_FILE = GroceryListTests/Info.plist;
@@ -689,6 +711,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroceryList.app/GroceryList";
@@ -701,6 +724,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
 				INFOPLIST_FILE = GroceryListTests/Info.plist;
