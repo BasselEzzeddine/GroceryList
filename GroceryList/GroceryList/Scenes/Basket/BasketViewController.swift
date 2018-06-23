@@ -30,6 +30,11 @@ class BasketViewController: UIViewController {
     // MARK: - Properties
     private let disposeBag = DisposeBag()
     
+    var bagsOfPeasInBasket: Int = 0
+    var dozensOfEggsInBasket: Int = 0
+    var bottlesOfMilkInBasket: Int = 0
+    var cansOfBeansInBasket: Int = 0
+    
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,31 +43,55 @@ class BasketViewController: UIViewController {
     
     // MARK: - Methods
     func setupSteppersDrivers() {
-        stepper_peas.rx.controlEvent(.valueChanged)
+        // Peas driver
+        let peasDriver = stepper_peas.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_peas.value) }
             .asDriver(onErrorJustReturn: 0)
-            .map { "\($0) bags" }
+        
+        peasDriver.drive(onNext: { value in
+            self.bagsOfPeasInBasket = value
+        }).disposed(by: disposeBag)
+        
+        peasDriver.map { "\($0) bags" }
             .drive(label_peas.rx.text)
             .disposed(by: disposeBag)
         
-        stepper_eggs.rx.controlEvent(.valueChanged)
+        // Eggs driver
+        let eggsDriver = stepper_eggs.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_eggs.value) }
             .asDriver(onErrorJustReturn: 0)
-            .map { "\($0) dozens" }
+        
+        eggsDriver.drive(onNext: { value in
+            self.dozensOfEggsInBasket = value
+        }).disposed(by: disposeBag)
+        
+        eggsDriver.map { "\($0) dozens" }
             .drive(label_eggs.rx.text)
             .disposed(by: disposeBag)
         
-        stepper_milk.rx.controlEvent(.valueChanged)
+        // Milk driver
+        let milkDriver = stepper_milk.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_milk.value) }
             .asDriver(onErrorJustReturn: 0)
-            .map { "\($0) bottles" }
+        
+        milkDriver.drive(onNext: { value in
+            self.bottlesOfMilkInBasket = value
+        }).disposed(by: disposeBag)
+        
+        milkDriver.map { "\($0) bottles" }
             .drive(label_milk.rx.text)
             .disposed(by: disposeBag)
         
-        stepper_beans.rx.controlEvent(.valueChanged)
+        // Beans driver
+        let beansDriver = stepper_beans.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_beans.value) }
             .asDriver(onErrorJustReturn: 0)
-            .map { "\($0) cans" }
+        
+        beansDriver.drive(onNext: { value in
+            self.cansOfBeansInBasket = value
+        }).disposed(by: disposeBag)
+        
+        beansDriver.map { "\($0) cans" }
             .drive(label_beans.rx.text)
             .disposed(by: disposeBag)
     }

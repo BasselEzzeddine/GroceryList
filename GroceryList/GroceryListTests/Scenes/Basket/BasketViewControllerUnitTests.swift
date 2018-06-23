@@ -41,7 +41,7 @@ class BasketViewControllerUnitTests: XCTestCase {
     }
     
     // MARK: - Tests
-    func testChangingPeasStepperValue_DisplaysCorrectText() {
+    func testChangingPeasStepperValue_SetsCorrectBagsOfPeasInBasket_AndDisplaysCorrectText() {
         // Given
         sut.label_peas.text = "0 bags"
         
@@ -50,10 +50,11 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.stepper_peas.sendActions(for: .valueChanged)
         
         // Then
+        XCTAssertEqual(sut.bagsOfPeasInBasket, 1)
         XCTAssertEqual(sut.label_peas.text, "1 bags")
     }
     
-    func testChangingEggsStepperValue_DisplaysCorrectText() {
+    func testChangingEggsStepperValue_SetsCorrectDozensOfEggsInBasket_AndDisplaysCorrectText() {
         // Given
         sut.label_eggs.text = "0 dozens"
         
@@ -62,10 +63,11 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.stepper_eggs.sendActions(for: .valueChanged)
         
         // Then
+        XCTAssertEqual(sut.dozensOfEggsInBasket, 2)
         XCTAssertEqual(sut.label_eggs.text, "2 dozens")
     }
     
-    func testChangingMilkStepperValue_DisplaysCorrectText() {
+    func testChangingMilkStepperValue_SetsCorrectBottlesOfMilkInBasket_AndDisplaysCorrectText() {
         // Given
         sut.label_milk.text = "0 bottles"
         
@@ -74,10 +76,11 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.stepper_milk.sendActions(for: .valueChanged)
         
         // Then
+        XCTAssertEqual(sut.bottlesOfMilkInBasket, 3)
         XCTAssertEqual(sut.label_milk.text, "3 bottles")
     }
     
-    func testChangingBeansStepperValue_DisplaysCorrectText() {
+    func testChangingBeansStepperValue_SetsCorrectCansOfBeansInBasket_AndDisplaysCorrectText() {
         // Given
         sut.label_beans.text = "0 cans"
         
@@ -86,6 +89,7 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.stepper_beans.sendActions(for: .valueChanged)
         
         // Then
+        XCTAssertEqual(sut.cansOfBeansInBasket, 4)
         XCTAssertEqual(sut.label_beans.text, "4 cans")
     }
 }
