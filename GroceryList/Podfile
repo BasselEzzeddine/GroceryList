@@ -1,0 +1,20 @@
+platform :ios, '10.0'
+
+target 'GroceryList' do
+  use_frameworks!
+
+  # Pods for GroceryList
+  pod 'RxSwift', '~> 4.2'
+  pod 'RxCocoa', '~> 4.2'
+
+  target 'GroceryListTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GroceryListUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
