@@ -1,6 +1,6 @@
 Hello !
 
-This app displays prices a basket of goods in a number of different currencies (USD, EUR, and GBP).
+This app permits to price a basket of goods in a number of different currencies (USD, EUR, and GBP).
 
 The used architecture is Swift Clean Architecture (VIP) along with TDD.
 
