@@ -75,7 +75,7 @@ class BasketInteractorUnitTests: XCTestCase {
     }
     
     // MARK: - Tests
-    func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData() {
+    func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsUsd() {
         // Given
         let presenterMock = BasketPresenterMock()
         sut.presenter = presenterMock
@@ -87,6 +87,38 @@ class BasketInteractorUnitTests: XCTestCase {
         // Then
         XCTAssertTrue(presenterMock.presentTotalCalled)
         XCTAssertEqual(presenterMock.presentTotalResponse?.total, 11.97)
+    }
+    
+    func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsEur() {
+        // Given
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        sut.usdToEur = 2.0
+        
+        // When
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: 1, dozensOfEggsInBasket: 2, bottlesOfMilkInBasket: 3, cansOfBeansInBasket: 4, selectedCurrency: .eur)
+        sut.checkout(request: request)
+        
+        // Then
+        XCTAssertTrue(presenterMock.presentTotalCalled)
+        XCTAssertEqual(presenterMock.presentTotalResponse?.total, (11.97 * 2.0))
+    }
+    
+    func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsGbp() {
+        // Given
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        sut.usdToGbp = 3.0
+        
+        // When
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: 1, dozensOfEggsInBasket: 2, bottlesOfMilkInBasket: 3, cansOfBeansInBasket: 4, selectedCurrency: .gbp)
+        sut.checkout(request: request)
+        
+        // Then
+        XCTAssertTrue(presenterMock.presentTotalCalled)
+        XCTAssertEqual(presenterMock.presentTotalResponse?.total, (11.97 * 3.0))
     }
     
     func testFetchCurrencyRates_CallsFetchRawCurrencyRatesInWorker_WithCorrectData() {

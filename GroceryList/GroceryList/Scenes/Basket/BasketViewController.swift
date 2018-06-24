@@ -72,7 +72,7 @@ class BasketViewController: UIViewController {
         case 2:
             selectedCurrency = .gbp
         default:
-            selectedCurrency = .usd
+            break
         }
         
         let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket, selectedCurrency: selectedCurrency)
