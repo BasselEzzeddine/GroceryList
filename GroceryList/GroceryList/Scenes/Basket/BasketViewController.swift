@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol BasketViewControllerIn {
+    func displayTotal(viewModel: BasketModel.Checkout.ViewModel)
 }
 
 protocol BasketViewControllerOut {
