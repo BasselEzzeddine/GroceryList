@@ -7,10 +7,15 @@
 //
 
 import Foundation
+import RxSwift
 
 class CurrencyWorker {
     
+    // MARK: - Properties
+    var service = CurrencyService()
+    
     // MARK: - Methods
-    func fetchRawCurrencyRates() {
+    func fetchRawCurrencyRates(fromCurrency: CurrencyService.Currency, toCurrencies: [CurrencyService.Currency]) -> Observable<ServiceResult<RawCurrencyRates>> {
+        return service.fetchRawCurrencyRatesFromServer(fromCurrency: fromCurrency, toCurrencies: toCurrencies)
     }
 }

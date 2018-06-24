@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RawCurrencyRates: Decodable {
+struct RawCurrencyRates: Decodable, Equatable {
     var success: Bool
     var terms: String
     var privacy: String
@@ -25,4 +25,18 @@ struct RawCurrencyRates: Decodable {
             case gbp = "USDGBP"
         }
     }
+}
+
+func ==(lhs: RawCurrencyRates, rhs: RawCurrencyRates) -> Bool {
+    return lhs.success == rhs.success
+        && lhs.terms == rhs.terms
+        && lhs.privacy == rhs.privacy
+        && lhs.timestamp == rhs.timestamp
+        && lhs.source == rhs.source
+        && lhs.quotes == rhs.quotes
+}
+
+func ==(lhs: RawCurrencyRates.Quotes, rhs: RawCurrencyRates.Quotes) -> Bool {
+    return lhs.eur == rhs.eur
+        && lhs.gbp == rhs.gbp
 }

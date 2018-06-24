@@ -17,6 +17,8 @@
 		504DAED020DE68E000EE1BD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504DAECE20DE68E000EE1BD6 /* Main.storyboard */; };
 		504DAED220DE68E100EE1BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504DAED120DE68E100EE1BD6 /* Assets.xcassets */; };
 		504DAED520DE68E100EE1BD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504DAED320DE68E100EE1BD6 /* LaunchScreen.storyboard */; };
+		509DE42920DFDD7F004E6DC2 /* CurrencyWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE42820DFDD7F004E6DC2 /* CurrencyWorkerTests.swift */; };
+		509DE42B20DFE1CF004E6DC2 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE42A20DFE1CF004E6DC2 /* MockData.swift */; };
 		50DDF0B020DF980A00D167FA /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0AF20DF980A00D167FA /* BasketModel.swift */; };
 		50DDF0B220DF9FE000D167FA /* BasketInteractorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B120DF9FE000D167FA /* BasketInteractorUnitTests.swift */; };
 		50DDF0B420DFA33600D167FA /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B320DFA33600D167FA /* Calculator.swift */; };
@@ -70,6 +72,8 @@
 		504DAEE120DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504DAEE620DE68E100EE1BD6 /* GroceryListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504DAEEC20DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		509DE42820DFDD7F004E6DC2 /* CurrencyWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyWorkerTests.swift; sourceTree = "<group>"; };
+		509DE42A20DFE1CF004E6DC2 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		50DDF0AF20DF980A00D167FA /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		50DDF0B120DF9FE000D167FA /* BasketInteractorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketInteractorUnitTests.swift; sourceTree = "<group>"; };
 		50DDF0B320DFA33600D167FA /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 		50DDF0D020DFC63A00D167FA /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				509DE42820DFDD7F004E6DC2 /* CurrencyWorkerTests.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				50DDF0D520DFC67300D167FA /* MockFiles */,
+				509DE42A20DFE1CF004E6DC2 /* MockData.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -639,9 +645,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				50DDF0DB20DFC6E100D167FA /* MockServer.swift in Sources */,
+				509DE42920DFDD7F004E6DC2 /* CurrencyWorkerTests.swift in Sources */,
 				50DDF0B220DF9FE000D167FA /* BasketInteractorUnitTests.swift in Sources */,
 				50DDF0D320DFC66000D167FA /* CurrencyServiceUnitTests.swift in Sources */,
 				50DDF0B620DFA42E00D167FA /* CalculatorUnitTests.swift in Sources */,
+				509DE42B20DFE1CF004E6DC2 /* MockData.swift in Sources */,
 				50DDF0B920DFA6C100D167FA /* BasketPresenterUnitTests.swift in Sources */,
 				5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */,
 			);
