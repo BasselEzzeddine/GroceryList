@@ -64,7 +64,18 @@ class BasketViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func button_checkout_touchUpInside(_ sender: Any) {
-        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket)
+        var selectedCurrency: BasketModel.Checkout.Request.Currency = .usd
+        
+        switch segmentedControl_currency.selectedSegmentIndex {
+        case 1:
+            selectedCurrency = .eur
+        case 2:
+            selectedCurrency = .gbp
+        default:
+            selectedCurrency = .usd
+        }
+        
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket, selectedCurrency: selectedCurrency)
         interactor?.checkout(request: request)
     }
     

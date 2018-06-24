@@ -81,7 +81,7 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.presenter = presenterMock
         
         // When
-        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: 1, dozensOfEggsInBasket: 2, bottlesOfMilkInBasket: 3, cansOfBeansInBasket: 4)
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: 1, dozensOfEggsInBasket: 2, bottlesOfMilkInBasket: 3, cansOfBeansInBasket: 4, selectedCurrency: .usd)
         sut.checkout(request: request)
         
         // Then

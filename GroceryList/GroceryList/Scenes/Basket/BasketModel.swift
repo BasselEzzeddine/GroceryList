@@ -28,6 +28,13 @@ enum BasketModel {
             var dozensOfEggsInBasket: Int = 0
             var bottlesOfMilkInBasket: Int = 0
             var cansOfBeansInBasket: Int = 0
+            var selectedCurrency: Currency
+            
+            enum Currency: String {
+                case usd
+                case eur
+                case gbp
+            }
         }
         
         struct Response {
