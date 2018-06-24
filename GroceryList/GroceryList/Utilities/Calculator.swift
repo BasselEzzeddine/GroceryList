@@ -11,18 +11,18 @@ import Foundation
 class Calculator {
     
     // MARK: - Properties
-    let priceOfBagOfPeas: Float = 0.95
-    let priceOfDozenOfEggs: Float = 2.10
-    let priceOfBottleOfMilk: Float = 1.30
-    let priceOfCanOfBeans: Float = 0.73
+    let priceOfBagOfPeas: Double = 0.95
+    let priceOfDozenOfEggs: Double = 2.10
+    let priceOfBottleOfMilk: Double = 1.30
+    let priceOfCanOfBeans: Double = 0.73
     
     // MARK: - Methods
-    func calculateTotalAmountOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int) -> Float {
-        var result: Float = 0.0
-        result += Float(bagsOfPeas) * priceOfBagOfPeas
-        result += Float(dozensOfEggs) * priceOfDozenOfEggs
-        result += Float(bottlesOfMilk) * priceOfBottleOfMilk
-        result += Float(cansOfBeans) * priceOfCanOfBeans
+    func calculateTotalAmountOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int) -> Double {
+        var result: Double = 0
+        result += Double(bagsOfPeas) * priceOfBagOfPeas
+        result += Double(dozensOfEggs) * priceOfDozenOfEggs
+        result += Double(bottlesOfMilk) * priceOfBottleOfMilk
+        result += Double(cansOfBeans) * priceOfCanOfBeans
         return result
     }
 }

@@ -20,7 +20,8 @@
 		50DDF0B020DF980A00D167FA /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0AF20DF980A00D167FA /* BasketModel.swift */; };
 		50DDF0B220DF9FE000D167FA /* BasketInteractorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B120DF9FE000D167FA /* BasketInteractorUnitTests.swift */; };
 		50DDF0B420DFA33600D167FA /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B320DFA33600D167FA /* Calculator.swift */; };
-		50DDF0B620DFA42E00D167FA /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B520DFA42E00D167FA /* CalculatorTests.swift */; };
+		50DDF0B620DFA42E00D167FA /* CalculatorUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B520DFA42E00D167FA /* CalculatorUnitTests.swift */; };
+		50DDF0B920DFA6C100D167FA /* BasketPresenterUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B820DFA6C100D167FA /* BasketPresenterUnitTests.swift */; };
 		AED805F2A1D67F7F5E7D5D91 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +61,8 @@
 		50DDF0AF20DF980A00D167FA /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		50DDF0B120DF9FE000D167FA /* BasketInteractorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketInteractorUnitTests.swift; sourceTree = "<group>"; };
 		50DDF0B320DFA33600D167FA /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
-		50DDF0B520DFA42E00D167FA /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		50DDF0B520DFA42E00D167FA /* CalculatorUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUnitTests.swift; sourceTree = "<group>"; };
+		50DDF0B820DFA6C100D167FA /* BasketPresenterUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenterUnitTests.swift; sourceTree = "<group>"; };
 		75FC17F211977DB186891B99 /* Pods-GroceryListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9543D7A1F3DEB65EC1E6F91C /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */,
 				50DDF0B120DF9FE000D167FA /* BasketInteractorUnitTests.swift */,
+				50DDF0B820DFA6C100D167FA /* BasketPresenterUnitTests.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -285,7 +288,7 @@
 		50DDF0B720DFA43600D167FA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				50DDF0B520DFA42E00D167FA /* CalculatorTests.swift */,
+				50DDF0B520DFA42E00D167FA /* CalculatorUnitTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -527,7 +530,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				50DDF0B220DF9FE000D167FA /* BasketInteractorUnitTests.swift in Sources */,
-				50DDF0B620DFA42E00D167FA /* CalculatorTests.swift in Sources */,
+				50DDF0B620DFA42E00D167FA /* CalculatorUnitTests.swift in Sources */,
+				50DDF0B920DFA6C100D167FA /* BasketPresenterUnitTests.swift in Sources */,
 				5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,11 +20,14 @@ class BasketInteractor {
     
     // MARK: - Properties
     var presenter: BasketInteractorOut?
+    let calculator = Calculator()
 }
 
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
     func checkout(request: BasketModel.Checkout.Request) {
-        
+        let total = calculator.calculateTotalAmountOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket)
+        let response = BasketModel.Checkout.Response(total: total)
+        presenter?.presentTotal(response: response)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CalculatorTests.swift
+//  CalculatorUnitTests.swift
 //  GroceryListTests
 //
 //  Created by Bassel Ezzeddine on 24/06/2018.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import GroceryList
 
-class CalculatorTests: XCTestCase {
+class CalculatorUnitTests: XCTestCase {
     
     // MARK: - Properties
     var sut: Calculator!
