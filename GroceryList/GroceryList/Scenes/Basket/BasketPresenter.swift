@@ -31,7 +31,9 @@ class BasketPresenter {
 // MARK: - BasketPresenterIn
 extension BasketPresenter: BasketPresenterIn {
     func presentTotal(response: BasketModel.Checkout.Response) {
-        let viewModel = BasketModel.Checkout.ViewModel(total: response.total)
+        let total = Double(round(100 * response.total) / 100)
+        let formattedTotal = String(total).replacingOccurrences(of: ".", with: ",")
+        let viewModel = BasketModel.Checkout.ViewModel(total: formattedTotal)
         viewController?.displayTotal(viewModel: viewModel)
     }
     

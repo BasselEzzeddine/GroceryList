@@ -146,7 +146,7 @@ class BasketViewController: UIViewController {
 // MARK: - BasketViewControllerIn
 extension BasketViewController: BasketViewControllerIn {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel) {
-        label_total.text = String(viewModel.total).replacingOccurrences(of: ".", with: ",")
+        label_total.text = viewModel.total
     }
     
     func enableCurrencySegmentedControl() {

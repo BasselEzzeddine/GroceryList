@@ -42,7 +42,7 @@ enum BasketModel {
         }
         
         struct ViewModel {
-            var total: Double = 0.0
+            var total: String
         }
     }
 }

@@ -177,7 +177,7 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.label_total.text = ""
         
         // When
-        let viewModel = BasketModel.Checkout.ViewModel(total: 50.55)
+        let viewModel = BasketModel.Checkout.ViewModel(total: "50,55")
         sut.displayTotal(viewModel: viewModel)
         
         // Then

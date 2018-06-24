@@ -67,7 +67,7 @@ class BasketPresenterUnitTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewControllerMock.displayTotalCalled)
-        XCTAssertEqual(viewControllerMock.displayTotalViewModel?.total, 50.55)
+        XCTAssertEqual(viewControllerMock.displayTotalViewModel?.total, "50,55")
     }
     
     func testCallingEnableCurrencies_CallsEnableCurrencySegmentedControlInViewController() {
