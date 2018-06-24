@@ -41,6 +41,14 @@ class BasketInteractorUnitTests: XCTestCase {
         }
     }
     
+    class CurrencyWorkerMock: CurrencyWorker {
+        var fetchRawCurrencyRatesCalled = false
+        
+        override func fetchRawCurrencyRates() {
+            fetchRawCurrencyRatesCalled = true
+        }
+    }
+    
     // MARK: - Tests
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData() {
         // Given
@@ -54,5 +62,17 @@ class BasketInteractorUnitTests: XCTestCase {
         // Then
         XCTAssertTrue(presenterMock.presentTotalCalled)
         XCTAssertEqual(presenterMock.presentTotalResponse?.total, 11.97)
+    }
+    
+    func testFetchCurrencyRates_CallsFetchRawCurrencyRatesInWorker() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        // When
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertTrue(workerMock.fetchRawCurrencyRatesCalled)
     }
 }

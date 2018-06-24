@@ -141,7 +141,7 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(sut.label_total.text, "50,55")
     }
     
-    func testWhenViewLoads_CallsFetchCurrencyRates() {
+    func testWhenViewLoads_CallsFetchCurrencyRatesInInteractor() {
         // Given
         let interactorMock = BasketInteractorMock()
         sut.interactor = interactorMock

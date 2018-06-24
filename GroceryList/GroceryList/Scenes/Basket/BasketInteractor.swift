@@ -21,13 +21,14 @@ class BasketInteractor {
     
     // MARK: - Properties
     var presenter: BasketInteractorOut?
-    let calculator = Calculator()
+    var worker = CurrencyWorker()
+    private let calculator = Calculator()
 }
 
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
     func fetchCurrencyRates() {
-        
+        worker.fetchRawCurrencyRates()
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
