@@ -1,0 +1,11 @@
+{
+    "success":true,
+    "terms":"https://currencylayer.com/terms",
+    "privacy":"https://currencylayer.com/privacy",
+    "timestamp":1529835786,
+    "source":"USD",
+    "quotes":{
+        "USDEUR":1.5,
+        "USDGBP":2.0
+    }
+}
