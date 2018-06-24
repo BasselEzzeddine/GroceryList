@@ -12,6 +12,7 @@ protocol BasketPresenterIn {
     func presentTotal(response: BasketModel.Checkout.Response)
     func enableCurrencies()
     func presentCurrenciesUpdateMessage()
+    func presentCurrenciesErrorMessage()
 }
 
 protocol BasketPresenterOut: class {
@@ -42,5 +43,8 @@ extension BasketPresenter: BasketPresenterIn {
         let message = "Currency rates last updated \(timestamp.now())"
         let viewModel = BasketModel.FetchCurrencyRates.ViewModel(message: message)
         viewController?.updateInfoMessage(viewModel: viewModel)
+    }
+    
+    func presentCurrenciesErrorMessage() {
     }
 }

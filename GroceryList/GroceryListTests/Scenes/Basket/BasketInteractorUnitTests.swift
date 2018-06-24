@@ -40,6 +40,8 @@ class BasketInteractorUnitTests: XCTestCase {
         var enableCurrenciesCalled = false
         var presentCurrenciesUpdateMessageCalled = false
         
+        var presentCurrenciesErrorMessageCalled = false
+        
         func presentTotal(response: BasketModel.Checkout.Response) {
             presentTotalCalled = true
             presentTotalResponse = response
@@ -51,6 +53,10 @@ class BasketInteractorUnitTests: XCTestCase {
         
         func presentCurrenciesUpdateMessage() {
             presentCurrenciesUpdateMessageCalled = true
+        }
+        
+        func presentCurrenciesErrorMessage() {
+            presentCurrenciesErrorMessageCalled = true
         }
     }
     
@@ -132,5 +138,39 @@ class BasketInteractorUnitTests: XCTestCase {
         
         // Then
         XCTAssertTrue(presenterMock.presentCurrenciesUpdateMessageCalled)
+    }
+    
+    func testWhenReceivingInvalidUrlFailureFromWorker_CallsPresentCurrenciesErrorMessageInPresenter() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        // When
+        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidUrl)
+        
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertTrue(presenterMock.presentCurrenciesErrorMessageCalled)
+    }
+    
+    func testWhenReceivingInvalidResponseFailureFromWorker_CallsPresentCurrenciesErrorMessageInPresenter() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        // When
+        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertTrue(presenterMock.presentCurrenciesErrorMessageCalled)
     }
 }

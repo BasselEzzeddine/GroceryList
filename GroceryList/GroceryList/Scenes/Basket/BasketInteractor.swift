@@ -18,6 +18,7 @@ protocol BasketInteractorOut {
     func presentTotal(response: BasketModel.Checkout.Response)
     func enableCurrencies()
     func presentCurrenciesUpdateMessage()
+    func presentCurrenciesErrorMessage()
 }
 
 class BasketInteractor {
@@ -35,6 +36,7 @@ class BasketInteractor {
     }
     
     func handleFetchFailure(_ serviceErrorType: ServiceErrorType) {
+        presenter?.presentCurrenciesErrorMessage()
     }
 }
 
