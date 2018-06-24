@@ -172,6 +172,69 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(interactorMock.checkoutRequest?.selectedCurrency, .gbp)
     }
     
+    func testchangingValueOfCurrencySegmentedControl_CallsCheckoutInInteractor_WithCorrectData() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        sut.bagsOfPeasInBasket = 1
+        sut.dozensOfEggsInBasket = 2
+        sut.bottlesOfMilkInBasket = 3
+        sut.cansOfBeansInBasket = 4
+        
+        // When
+        sut.segmentedControl_currency.selectedSegmentIndex = 0
+        sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
+        
+        // Then
+        XCTAssertTrue(interactorMock.checkoutCalled)
+        
+        XCTAssertEqual(interactorMock.checkoutRequest?.bagsOfPeasInBasket, 1)
+        XCTAssertEqual(interactorMock.checkoutRequest?.dozensOfEggsInBasket, 2)
+        XCTAssertEqual(interactorMock.checkoutRequest?.bottlesOfMilkInBasket, 3)
+        XCTAssertEqual(interactorMock.checkoutRequest?.cansOfBeansInBasket, 4)
+        XCTAssertEqual(interactorMock.checkoutRequest?.selectedCurrency, .usd)
+    }
+    
+    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsUsd() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        // When
+        sut.segmentedControl_currency.selectedSegmentIndex = 0
+        sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
+        
+        // Then
+        XCTAssertEqual(interactorMock.checkoutRequest?.selectedCurrency, .usd)
+    }
+    
+    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsEur() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        // When
+        sut.segmentedControl_currency.selectedSegmentIndex = 1
+        sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
+        
+        // Then
+        XCTAssertEqual(interactorMock.checkoutRequest?.selectedCurrency, .eur)
+    }
+    
+    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsGbp() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        // When
+        sut.segmentedControl_currency.selectedSegmentIndex = 2
+        sut.button_checkout_touchUpInside(sut.button_checkout)
+        
+        // Then
+        XCTAssertEqual(interactorMock.checkoutRequest?.selectedCurrency, .gbp)
+    }
+    
     func testCallingDisplayTotal_DisplaysCorrectText() {
         // Given
         sut.label_total.text = ""

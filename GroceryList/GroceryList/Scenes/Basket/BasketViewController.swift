@@ -64,19 +64,11 @@ class BasketViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func button_checkout_touchUpInside(_ sender: Any) {
-        var selectedCurrency: BasketModel.Checkout.Request.Currency = .usd
-        
-        switch segmentedControl_currency.selectedSegmentIndex {
-        case 1:
-            selectedCurrency = .eur
-        case 2:
-            selectedCurrency = .gbp
-        default:
-            break
-        }
-        
-        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket, selectedCurrency: selectedCurrency)
-        interactor?.checkout(request: request)
+        performCheckout()
+    }
+    
+    @IBAction func segmentedControl_currency_valueChanged(_ sender: Any) {
+        performCheckout()
     }
     
     // MARK: - Methods
@@ -140,6 +132,22 @@ class BasketViewController: UIViewController {
     
     func emptyTheInfoLabel() {
         label_info.text = ""
+    }
+    
+    func performCheckout() {
+        var selectedCurrency: BasketModel.Checkout.Request.Currency = .usd
+        
+        switch segmentedControl_currency.selectedSegmentIndex {
+        case 1:
+            selectedCurrency = .eur
+        case 2:
+            selectedCurrency = .gbp
+        default:
+            break
+        }
+        
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket, selectedCurrency: selectedCurrency)
+        interactor?.checkout(request: request)
     }
 }
 

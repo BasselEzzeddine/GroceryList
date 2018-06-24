@@ -163,6 +163,9 @@
                                     <segment title="GBP"/>
                                 </segments>
                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentedControl_currency_valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="tkd-th-11H"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
