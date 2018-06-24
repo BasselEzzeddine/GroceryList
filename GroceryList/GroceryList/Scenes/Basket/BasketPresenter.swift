@@ -16,6 +16,7 @@ protocol BasketPresenterIn {
 
 protocol BasketPresenterOut: class {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel)
+    func enableCurrencySegmentedControl()
 }
 
 class BasketPresenter {
@@ -32,6 +33,7 @@ extension BasketPresenter: BasketPresenterIn {
     }
     
     func enableCurrencies() {
+        viewController?.enableCurrencySegmentedControl()
     }
     
     func presentCurrenciesUpdateMessage() {

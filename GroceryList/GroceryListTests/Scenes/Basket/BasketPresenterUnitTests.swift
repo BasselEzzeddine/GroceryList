@@ -35,9 +35,15 @@ class BasketPresenterUnitTests: XCTestCase {
         var displayTotalCalled = false
         var displayTotalViewModel: BasketModel.Checkout.ViewModel?
         
+        var enableCurrencySegmentedControlCalled = false
+        
         func displayTotal(viewModel: BasketModel.Checkout.ViewModel) {
             displayTotalCalled = true
             displayTotalViewModel = viewModel
+        }
+        
+        func enableCurrencySegmentedControl() {
+            enableCurrencySegmentedControlCalled = true
         }
     }
     
@@ -54,5 +60,17 @@ class BasketPresenterUnitTests: XCTestCase {
         // Then
         XCTAssertTrue(viewControllerMock.displayTotalCalled)
         XCTAssertEqual(viewControllerMock.displayTotalViewModel?.total, 50.55)
+    }
+    
+    func testCallingEnableCurrencies_CallsEnableCurrencySegmentedControlInViewController() {
+        // Given
+        let viewControllerMock = BasketViewControllerMock()
+        sut.viewController = viewControllerMock
+        
+        // When
+        sut.enableCurrencies()
+        
+        // Then
+        XCTAssertTrue(viewControllerMock.enableCurrencySegmentedControlCalled)
     }
 }

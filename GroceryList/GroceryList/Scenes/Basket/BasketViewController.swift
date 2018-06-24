@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol BasketViewControllerIn {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel)
+    func enableCurrencySegmentedControl()
 }
 
 protocol BasketViewControllerOut {
@@ -123,5 +124,8 @@ class BasketViewController: UIViewController {
 extension BasketViewController: BasketViewControllerIn {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel) {
         label_total.text = String(viewModel.total).replacingOccurrences(of: ".", with: ",")
+    }
+    
+    func enableCurrencySegmentedControl() {
     }
 }
