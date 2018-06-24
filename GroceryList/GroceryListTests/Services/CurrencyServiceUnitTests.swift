@@ -40,7 +40,7 @@ class CurrencyServiceTests: XCTestCase {
         mockServer.start()
         
         // When
-        let result = try! sut.fetchRawCurrencyRatesFromServer().toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
@@ -64,7 +64,7 @@ class CurrencyServiceTests: XCTestCase {
         
         // When
         sut.currencyEndpoint = ""
-        let result = try! sut.fetchRawCurrencyRatesFromServer().toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
@@ -81,7 +81,7 @@ class CurrencyServiceTests: XCTestCase {
         mockServer.start()
         
         // When
-        let result = try! sut.fetchRawCurrencyRatesFromServer().toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
