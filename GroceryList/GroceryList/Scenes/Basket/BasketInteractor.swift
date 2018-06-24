@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol BasketInteractorIn {
     func fetchCurrencyRates()
@@ -15,6 +16,7 @@ protocol BasketInteractorIn {
 
 protocol BasketInteractorOut {
     func presentTotal(response: BasketModel.Checkout.Response)
+    func enableCurrencies()
 }
 
 class BasketInteractor {
@@ -23,12 +25,34 @@ class BasketInteractor {
     var presenter: BasketInteractorOut?
     var worker = CurrencyWorker()
     private let calculator = Calculator()
+    private let bag = DisposeBag()
+    
+    // MARK: - Methods
+    func handleFetchSuccess(_ rawCurrencyRates: RawCurrencyRates) {
+        presenter?.enableCurrencies()
+    }
+    
+    func handleFetchFailure(_ serviceErrorType: ServiceErrorType) {
+    }
 }
 
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
     func fetchCurrencyRates() {
         worker.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp])
+            .observeOn(MainScheduler.instance)
+            .subscribe(
+                onNext: { result in
+                    switch result {
+                    case .Success(let rawCurrencyRates):
+                        self.handleFetchSuccess(rawCurrencyRates)
+                    case .Failure(let serviceErrorType):
+                        self.handleFetchFailure(serviceErrorType)
+                    }
+            },
+                onError: { error in
+                    self.handleFetchFailure(.invalidResponse)
+            }).disposed(by:bag)
     }
     
     func checkout(request: BasketModel.Checkout.Request) {

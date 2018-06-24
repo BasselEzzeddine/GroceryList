@@ -10,6 +10,7 @@ import Foundation
 
 protocol BasketPresenterIn {
     func presentTotal(response: BasketModel.Checkout.Response)
+    func enableCurrencies()
 }
 
 protocol BasketPresenterOut: class {
@@ -27,5 +28,8 @@ extension BasketPresenter: BasketPresenterIn {
     func presentTotal(response: BasketModel.Checkout.Response) {
         let viewModel = BasketModel.Checkout.ViewModel(total: response.total)
         viewController?.displayTotal(viewModel: viewModel)
+    }
+    
+    func enableCurrencies() {
     }
 }

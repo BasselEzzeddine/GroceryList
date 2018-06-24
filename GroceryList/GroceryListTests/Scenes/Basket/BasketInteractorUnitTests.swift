@@ -14,6 +14,7 @@ class BasketInteractorUnitTests: XCTestCase {
     
     // MARK: - Properties
     var sut: BasketInteractor!
+    let mockData = MockData()
     
     // MARK: - XCTestCase
     override func setUp() {
@@ -36,9 +37,15 @@ class BasketInteractorUnitTests: XCTestCase {
         var presentTotalCalled = false
         var presentTotalResponse: BasketModel.Checkout.Response?
         
+        var enableCurrenciesCalled = false
+        
         func presentTotal(response: BasketModel.Checkout.Response) {
             presentTotalCalled = true
             presentTotalResponse = response
+        }
+        
+        func enableCurrencies() {
+            enableCurrenciesCalled = true
         }
     }
     
@@ -84,5 +91,23 @@ class BasketInteractorUnitTests: XCTestCase {
         XCTAssertTrue(workerMock.fetchRawCurrencyRatesCalled)
         XCTAssertEqual(workerMock.fromCurrencyPassed, .usd)
         XCTAssertEqual(workerMock.toCurrenciesPassed, [.eur, .gbp])
+    }
+    
+    func testWhenReceivingSuccessFromWorker_CallsEnableCurrenciesInPresenter() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        // When
+        let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
+        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertTrue(presenterMock.enableCurrenciesCalled)
     }
 }
