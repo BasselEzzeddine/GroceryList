@@ -145,11 +145,25 @@ class BasketViewControllerUnitTests: XCTestCase {
     }
     
     func testWhenViewLoads_DisablesCurrencySegmentedControl() {
+        // Given
+        sut.segmentedControl_currency.isEnabled = true
+        
         // When
         sut.viewDidLoad()
         
         // Then
         XCTAssertFalse(sut.segmentedControl_currency.isEnabled)
+    }
+    
+    func testWhenViewLoads_EmptyTheInfoLabel() {
+        // Given
+        sut.label_info.text = "Info"
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssertEqual(sut.label_info.text, "")
     }
     
     func testWhenViewLoads_CallsFetchCurrencyRatesInInteractor() {

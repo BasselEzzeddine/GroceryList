@@ -37,6 +37,7 @@ class BasketViewController: UIViewController {
     @IBOutlet weak var button_checkout: UIButton!
     @IBOutlet weak var segmentedControl_currency: UISegmentedControl!
     @IBOutlet weak var label_total: UILabel!
+    @IBOutlet weak var label_info: UILabel!
     
     // MARK: - Properties
     var interactor: BasketViewControllerOut?
@@ -57,6 +58,7 @@ class BasketViewController: UIViewController {
         super.viewDidLoad()
         setupControlsDrivers()
         disableCurrencySegmentedControl()
+        emptyTheInfoLabel()
         interactor?.fetchCurrencyRates()
     }
     
@@ -123,6 +125,10 @@ class BasketViewController: UIViewController {
     
     func disableCurrencySegmentedControl() {
         segmentedControl_currency.isEnabled = false
+    }
+    
+    func emptyTheInfoLabel() {
+        label_info.text = ""
     }
 }
 

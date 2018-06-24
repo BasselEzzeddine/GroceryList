@@ -158,10 +158,17 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBk-dG-UP6">
+                                <rect key="frame" x="24" y="637" width="327" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Shm-UX-qC1" firstAttribute="top" secondItem="TI2-7w-Q8T" secondAttribute="bottom" constant="14" id="Ah1-Gt-iUD"/>
+                            <constraint firstItem="QBk-dG-UP6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Gmz-lM-UUj"/>
                             <constraint firstItem="L15-Cy-vjg" firstAttribute="centerY" secondItem="alC-8U-PHG" secondAttribute="centerY" id="I8a-uD-gyY"/>
                             <constraint firstItem="alC-8U-PHG" firstAttribute="top" secondItem="Shm-UX-qC1" secondAttribute="bottom" constant="24" id="J2f-g9-1DV"/>
                             <constraint firstItem="alC-8U-PHG" firstAttribute="centerX" secondItem="Shm-UX-qC1" secondAttribute="centerX" id="JPi-CR-j6r"/>
@@ -173,7 +180,9 @@
                             <constraint firstItem="TI2-7w-Q8T" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hAb-zi-Aek"/>
                             <constraint firstItem="L15-Cy-vjg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="kD4-OR-92p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="56J-O2-9mN" secondAttribute="trailing" id="qoj-bR-y0l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QBk-dG-UP6" secondAttribute="trailing" constant="24" id="r59-qO-Nt6"/>
                             <constraint firstItem="56J-O2-9mN" firstAttribute="top" secondItem="AOx-7F-rLd" secondAttribute="bottom" constant="24" id="sXc-oE-7Ni"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QBk-dG-UP6" secondAttribute="bottom" constant="14" id="yjo-W1-4Lb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -181,6 +190,7 @@
                         <outlet property="button_checkout" destination="TI2-7w-Q8T" id="Fzq-fD-tnM"/>
                         <outlet property="label_beans" destination="fRH-Kk-J4Q" id="7j5-lw-4vZ"/>
                         <outlet property="label_eggs" destination="4Cz-8U-VBn" id="NVH-Bi-osP"/>
+                        <outlet property="label_info" destination="QBk-dG-UP6" id="W1e-tT-mey"/>
                         <outlet property="label_milk" destination="oyY-aa-2Nh" id="qda-BL-G7A"/>
                         <outlet property="label_peas" destination="zIp-DH-EAv" id="bqA-Br-wvi"/>
                         <outlet property="label_total" destination="alC-8U-PHG" id="Cmr-XZ-NOV"/>
