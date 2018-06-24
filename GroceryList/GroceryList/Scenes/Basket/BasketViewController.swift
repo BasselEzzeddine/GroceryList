@@ -127,5 +127,6 @@ extension BasketViewController: BasketViewControllerIn {
     }
     
     func enableCurrencySegmentedControl() {
+        segmentedControl_currency.isEnabled = true
     }
 }

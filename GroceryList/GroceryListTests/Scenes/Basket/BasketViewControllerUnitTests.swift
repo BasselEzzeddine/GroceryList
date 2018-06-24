@@ -133,6 +133,9 @@ class BasketViewControllerUnitTests: XCTestCase {
     }
     
     func testCallingDisplayTotal_DisplaysCorrectText() {
+        // Given
+        sut.label_total.text = ""
+        
         // When
         let viewModel = BasketModel.Checkout.ViewModel(total: 50.55)
         sut.displayTotal(viewModel: viewModel)
@@ -151,5 +154,16 @@ class BasketViewControllerUnitTests: XCTestCase {
         
         // Then
         XCTAssertTrue(interactorMock.fetchCurrencyRatesCalled)
+    }
+    
+    func testCallingEnableCurrencySegmentedControl_EnablesCurrencySegmentedControl() {
+        // Given
+        sut.segmentedControl_currency.isEnabled = false
+        
+        // When
+        sut.enableCurrencySegmentedControl()
+        
+        // Then
+        XCTAssertTrue(sut.segmentedControl_currency.isEnabled)
     }
 }
