@@ -39,31 +39,31 @@ class CalculatorUnitTests: XCTestCase {
         let priceOfCanOfBeans: Double = 0.73
         
         // When
-        var result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 0, dozensOfEggs: 0, bottlesOfMilk: 0, cansOfBeans: 0, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
+        var result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 0, dozensOfEggs: 0, bottlesOfMilk: 0, cansOfBeans: 0, priceOfBagOfPeasInUsd: priceOfBagOfPeas, priceOfDozenOfEggsInUsd: priceOfDozenOfEggs, priceOfBottleOfMilkInUsd: priceOfBottleOfMilk, priceOfCanOfBeansInUsd: priceOfCanOfBeans, conversionRateFromUsd: 1)
         
         // Then
         XCTAssertEqual(result, 0)
         
         // When
-        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 0, dozensOfEggs: 0, bottlesOfMilk: 0, cansOfBeans: 1, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
+        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 0, dozensOfEggs: 0, bottlesOfMilk: 0, cansOfBeans: 1, priceOfBagOfPeasInUsd: priceOfBagOfPeas, priceOfDozenOfEggsInUsd: priceOfDozenOfEggs, priceOfBottleOfMilkInUsd: priceOfBottleOfMilk, priceOfCanOfBeansInUsd: priceOfCanOfBeans, conversionRateFromUsd: 1)
         
         // Then
         XCTAssertEqual(result, 0.73)
         
         // When
-        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 1, dozensOfEggs: 1, bottlesOfMilk: 1, cansOfBeans: 1, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
+        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 1, dozensOfEggs: 1, bottlesOfMilk: 1, cansOfBeans: 1, priceOfBagOfPeasInUsd: priceOfBagOfPeas, priceOfDozenOfEggsInUsd: priceOfDozenOfEggs, priceOfBottleOfMilkInUsd: priceOfBottleOfMilk, priceOfCanOfBeansInUsd: priceOfCanOfBeans, conversionRateFromUsd: 1)
         
         // Then
         XCTAssertEqual(result, 5.08)
         
         // When
-        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 2, dozensOfEggs: 2, bottlesOfMilk: 2, cansOfBeans: 2, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
+        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 2, dozensOfEggs: 2, bottlesOfMilk: 2, cansOfBeans: 2, priceOfBagOfPeasInUsd: priceOfBagOfPeas, priceOfDozenOfEggsInUsd: priceOfDozenOfEggs, priceOfBottleOfMilkInUsd: priceOfBottleOfMilk, priceOfCanOfBeansInUsd: priceOfCanOfBeans, conversionRateFromUsd: 1)
         
         // Then
         XCTAssertEqual(result, 10.16)
         
         // When
-        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 2, dozensOfEggs: 2, bottlesOfMilk: 2, cansOfBeans: 2, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 0.85)
+        result = sut.calculateTotalPriceOfBasket(bagsOfPeas: 2, dozensOfEggs: 2, bottlesOfMilk: 2, cansOfBeans: 2, priceOfBagOfPeasInUsd: priceOfBagOfPeas, priceOfDozenOfEggsInUsd: priceOfDozenOfEggs, priceOfBottleOfMilkInUsd: priceOfBottleOfMilk, priceOfCanOfBeansInUsd: priceOfCanOfBeans, conversionRateFromUsd: 0.85)
         
         // Then
         XCTAssertEqual(result, 8.636)

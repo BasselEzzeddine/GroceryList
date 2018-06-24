@@ -29,10 +29,10 @@ class BasketInteractor {
     private let calculator = Calculator()
     private let bag = DisposeBag()
     
-    let priceOfBagOfPeas: Double = 0.95
-    let priceOfDozenOfEggs: Double = 2.10
-    let priceOfBottleOfMilk: Double = 1.30
-    let priceOfCanOfBeans: Double = 0.73
+    let priceOfBagOfPeasInUsd: Double = 0.95
+    let priceOfDozenOfEggsInUsd: Double = 2.10
+    let priceOfBottleOfMilkInUsd: Double = 1.30
+    let priceOfCanOfBeansInUsd: Double = 0.73
     
     var usdToEur: Double = 0.0
     var usdToGbp: Double = 0.0
@@ -74,7 +74,7 @@ extension BasketInteractor: BasketInteractorIn {
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
-        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
+        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeasInUsd: priceOfBagOfPeasInUsd, priceOfDozenOfEggsInUsd: priceOfDozenOfEggsInUsd, priceOfBottleOfMilkInUsd: priceOfBottleOfMilkInUsd, priceOfCanOfBeansInUsd: priceOfCanOfBeansInUsd, conversionRateFromUsd: 1)
         let response = BasketModel.Checkout.Response(total: total)
         presenter?.presentTotal(response: response)
     }
