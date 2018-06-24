@@ -142,6 +142,9 @@
                                 <rect key="frame" x="147" y="416" width="81" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="checkout"/>
+                                <connections>
+                                    <action selector="button_checkout_touchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SzD-XD-8Rh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L15-Cy-vjg">
                                 <rect key="frame" x="14" y="518" width="52" height="30"/>

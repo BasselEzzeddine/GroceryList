@@ -10,6 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol BasketViewControllerIn {
+}
+
+protocol BasketViewControllerOut {
+    func checkout(request: BasketModel.Checkout.Request)
+}
+
 class BasketViewController: UIViewController {
     
     // MARK: - Outlets
@@ -28,6 +35,7 @@ class BasketViewController: UIViewController {
     @IBOutlet weak var label_total: UILabel!
     
     // MARK: - Properties
+    var interactor: BasketViewControllerOut?
     private let disposeBag = DisposeBag()
     
     var bagsOfPeasInBasket: Int = 0
@@ -38,12 +46,18 @@ class BasketViewController: UIViewController {
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSteppersDrivers()
+        setupControlsDrivers()
+    }
+    
+    // MARK: - Actions
+    @IBAction func button_checkout_touchUpInside(_ sender: Any) {
+        let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: bagsOfPeasInBasket, dozensOfEggsInBasket: dozensOfEggsInBasket, bottlesOfMilkInBasket: bottlesOfMilkInBasket, cansOfBeansInBasket: cansOfBeansInBasket)
+        interactor?.checkout(request: request)
     }
     
     // MARK: - Methods
-    func setupSteppersDrivers() {
-        // Peas driver
+    func setupControlsDrivers() {
+        // Peas stepper driver
         let peasDriver = stepper_peas.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_peas.value) }
             .asDriver(onErrorJustReturn: 0)
@@ -56,7 +70,7 @@ class BasketViewController: UIViewController {
             .drive(label_peas.rx.text)
             .disposed(by: disposeBag)
         
-        // Eggs driver
+        // Eggs stepper driver
         let eggsDriver = stepper_eggs.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_eggs.value) }
             .asDriver(onErrorJustReturn: 0)
@@ -69,7 +83,7 @@ class BasketViewController: UIViewController {
             .drive(label_eggs.rx.text)
             .disposed(by: disposeBag)
         
-        // Milk driver
+        // Milk stepper driver
         let milkDriver = stepper_milk.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_milk.value) }
             .asDriver(onErrorJustReturn: 0)
@@ -82,7 +96,7 @@ class BasketViewController: UIViewController {
             .drive(label_milk.rx.text)
             .disposed(by: disposeBag)
         
-        // Beans driver
+        // Beans stepper driver
         let beansDriver = stepper_beans.rx.controlEvent(.valueChanged)
             .map { Int(self.stepper_beans.value) }
             .asDriver(onErrorJustReturn: 0)

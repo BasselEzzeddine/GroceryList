@@ -10,11 +10,14 @@
 		09B2A905532D3E87E36876E7 /* Pods_GroceryListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8D87EEA45D950839C7647 /* Pods_GroceryListUITests.framework */; };
 		23978A684942E7ABAE647286 /* Pods_GroceryListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86422C4D85A9EDFD8C51D1D /* Pods_GroceryListTests.framework */; };
 		5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */; };
+		5022BC9020DEAE4800F30652 /* BasketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC8F20DEAE4800F30652 /* BasketInteractor.swift */; };
+		5022BC9220DEAE5F00F30652 /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC9120DEAE5F00F30652 /* BasketPresenter.swift */; };
 		504DAECB20DE68E000EE1BD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DAECA20DE68E000EE1BD6 /* AppDelegate.swift */; };
 		504DAECD20DE68E000EE1BD6 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DAECC20DE68E000EE1BD6 /* BasketViewController.swift */; };
 		504DAED020DE68E000EE1BD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504DAECE20DE68E000EE1BD6 /* Main.storyboard */; };
 		504DAED220DE68E100EE1BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504DAED120DE68E100EE1BD6 /* Assets.xcassets */; };
 		504DAED520DE68E100EE1BD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504DAED320DE68E100EE1BD6 /* LaunchScreen.storyboard */; };
+		50DDF0B020DF980A00D167FA /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0AF20DF980A00D167FA /* BasketModel.swift */; };
 		AED805F2A1D67F7F5E7D5D91 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,8 @@
 /* Begin PBXFileReference section */
 		08C222DDBA43DA01656646D1 /* Pods-GroceryListUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListUITests/Pods-GroceryListUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewControllerUnitTests.swift; sourceTree = "<group>"; };
+		5022BC8F20DEAE4800F30652 /* BasketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketInteractor.swift; sourceTree = "<group>"; };
+		5022BC9120DEAE5F00F30652 /* BasketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
 		504DAEC720DE68E000EE1BD6 /* GroceryList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504DAECA20DE68E000EE1BD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		504DAECC20DE68E000EE1BD6 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		504DAEE120DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504DAEE620DE68E100EE1BD6 /* GroceryListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504DAEEC20DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50DDF0AF20DF980A00D167FA /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
 		75FC17F211977DB186891B99 /* Pods-GroceryListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9543D7A1F3DEB65EC1E6F91C /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,7 +257,10 @@
 		504DAF0320DE6D5F00EE1BD6 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
+				50DDF0AF20DF980A00D167FA /* BasketModel.swift */,
 				504DAECC20DE68E000EE1BD6 /* BasketViewController.swift */,
+				5022BC8F20DEAE4800F30652 /* BasketInteractor.swift */,
+				5022BC9120DEAE5F00F30652 /* BasketPresenter.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -489,6 +498,9 @@
 			files = (
 				504DAECD20DE68E000EE1BD6 /* BasketViewController.swift in Sources */,
 				504DAECB20DE68E000EE1BD6 /* AppDelegate.swift in Sources */,
+				50DDF0B020DF980A00D167FA /* BasketModel.swift in Sources */,
+				5022BC9220DEAE5F00F30652 /* BasketPresenter.swift in Sources */,
+				5022BC9020DEAE4800F30652 /* BasketInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

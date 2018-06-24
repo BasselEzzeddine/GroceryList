@@ -35,6 +35,17 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut = storyboard.instantiateViewController(withIdentifier: "BasketViewController") as! BasketViewController
     }
     
+    // MARK: - Mocks
+    class BasketInteractorMock: BasketViewControllerOut {
+        var checkoutCalled = false
+        var checkoutRequest: BasketModel.Checkout.Request?
+        
+        func checkout(request: BasketModel.Checkout.Request) {
+            checkoutCalled = true
+            checkoutRequest = request
+        }
+    }
+    
     // MARK: - Methods
     func loadView() {
         window.addSubview(sut.view)
@@ -91,5 +102,27 @@ class BasketViewControllerUnitTests: XCTestCase {
         // Then
         XCTAssertEqual(sut.cansOfBeansInBasket, 4)
         XCTAssertEqual(sut.label_beans.text, "4 cans")
+    }
+    
+    func testClickingOnCheckoutButton_CallsCheckoutInInteractor_WithCorrectData() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        sut.bagsOfPeasInBasket = 1
+        sut.dozensOfEggsInBasket = 2
+        sut.bottlesOfMilkInBasket = 3
+        sut.cansOfBeansInBasket = 4
+        
+        // When
+        sut.button_checkout_touchUpInside(sut.button_checkout)
+        
+        // Then
+        XCTAssertTrue(interactorMock.checkoutCalled)
+        
+        XCTAssertEqual(interactorMock.checkoutRequest?.bagsOfPeasInBasket, 1)
+        XCTAssertEqual(interactorMock.checkoutRequest?.dozensOfEggsInBasket, 2)
+        XCTAssertEqual(interactorMock.checkoutRequest?.bottlesOfMilkInBasket, 3)
+        XCTAssertEqual(interactorMock.checkoutRequest?.cansOfBeansInBasket, 4)
     }
 }
