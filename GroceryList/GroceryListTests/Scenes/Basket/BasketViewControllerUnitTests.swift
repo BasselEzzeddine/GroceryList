@@ -6,8 +6,8 @@
 //  Copyright © 2018 Bassel Ezzeddine. All rights reserved.
 //
 
-@testable import GroceryList
 import XCTest
+@testable import GroceryList
 
 class BasketViewControllerUnitTests: XCTestCase {
     

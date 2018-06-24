@@ -9,6 +9,7 @@
 import Foundation
 
 protocol BasketPresenterIn {
+    func presentTotal(response: BasketModel.Checkout.Response)
 }
 
 protocol BasketPresenterOut {

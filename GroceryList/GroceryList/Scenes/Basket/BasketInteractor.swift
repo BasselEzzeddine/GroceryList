@@ -13,7 +13,18 @@ protocol BasketInteractorIn {
 }
 
 protocol BasketInteractorOut {
+    func presentTotal(response: BasketModel.Checkout.Response)
 }
 
 class BasketInteractor {
+    
+    // MARK: - Properties
+    var presenter: BasketInteractorOut?
+}
+
+// MARK: - BasketInteractorIn
+extension BasketInteractor: BasketInteractorIn {
+    func checkout(request: BasketModel.Checkout.Request) {
+        
+    }
 }

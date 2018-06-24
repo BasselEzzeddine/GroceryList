@@ -19,6 +19,7 @@ enum BasketModel {
         }
         
         struct Response {
+            var total: Float = 0.0
         }
         
         struct ViewModel {
