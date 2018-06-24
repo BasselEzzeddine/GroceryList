@@ -50,8 +50,8 @@ class CurrencyServiceTests: XCTestCase {
             XCTAssertEqual(rawCurrencyRates.privacy, "https://currencylayer.com/privacy")
             XCTAssertEqual(rawCurrencyRates.timestamp, 1529835786)
             XCTAssertEqual(rawCurrencyRates.source, "USD")
-            XCTAssertEqual(rawCurrencyRates.quotes?.eur, 1.5)
-            XCTAssertEqual(rawCurrencyRates.quotes?.gbp, 2.0)
+            XCTAssertEqual(rawCurrencyRates.quotes?.usdToEur, 1.5)
+            XCTAssertEqual(rawCurrencyRates.quotes?.usdToGbp, 2.0)
         case .Failure(_):
             XCTFail()
         }

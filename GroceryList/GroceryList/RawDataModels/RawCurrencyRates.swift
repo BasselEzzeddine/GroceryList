@@ -17,12 +17,12 @@ struct RawCurrencyRates: Decodable, Equatable {
     var quotes: Quotes?
     
     struct Quotes: Decodable, Equatable {
-        var eur: Double
-        var gbp: Double
+        var usdToEur: Double
+        var usdToGbp: Double
         
         enum CodingKeys: String, CodingKey {
-            case eur = "USDEUR"
-            case gbp = "USDGBP"
+            case usdToEur = "USDEUR"
+            case usdToGbp = "USDGBP"
         }
     }
 }
@@ -37,6 +37,6 @@ func ==(lhs: RawCurrencyRates, rhs: RawCurrencyRates) -> Bool {
 }
 
 func ==(lhs: RawCurrencyRates.Quotes, rhs: RawCurrencyRates.Quotes) -> Bool {
-    return lhs.eur == rhs.eur
-        && lhs.gbp == rhs.gbp
+    return lhs.usdToEur == rhs.usdToEur
+        && lhs.usdToGbp == rhs.usdToGbp
 }

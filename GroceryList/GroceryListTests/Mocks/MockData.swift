@@ -13,7 +13,7 @@ class MockData {
     
     // MARK: - Methods
     func getRawCurrencyRatesMock() -> RawCurrencyRates {
-        let quotes = RawCurrencyRates.Quotes(eur: 1.5, gbp: 2.0)
+        let quotes = RawCurrencyRates.Quotes(usdToEur: 1.5, usdToGbp: 2.0)
         let rawCurrencyRates = RawCurrencyRates(success: true, terms: "terms", privacy: "privacy", timestamp: 123, source: "USD", quotes: quotes)
         return rawCurrencyRates
     }
