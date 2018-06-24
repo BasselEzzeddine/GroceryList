@@ -32,8 +32,8 @@ class BasketInteractorUnitTests: XCTestCase {
         sut = BasketInteractor()
     }
     
-    // MARK: - Mocks
-    class BasketPresenterMock: BasketInteractorOut {
+    // MARK: - Spies
+    class BasketPresenterSpy: BasketInteractorOut {
         var presentTotalCalled = false
         var presentTotalResponse: BasketModel.Checkout.Response?
         
@@ -60,7 +60,7 @@ class BasketInteractorUnitTests: XCTestCase {
         }
     }
     
-    class CurrencyWorkerMock: CurrencyWorker {
+    class CurrencyWorkerSpy: CurrencyWorker {
         var fetchRawCurrencyRatesCalled = false
         var fromCurrencyPassed: CurrencyService.Currency?
         var toCurrenciesPassed: [CurrencyService.Currency]?
@@ -77,22 +77,22 @@ class BasketInteractorUnitTests: XCTestCase {
     // MARK: - Tests
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsUsd() {
         // Given
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         // When
         let request = BasketModel.Checkout.Request(bagsOfPeasInBasket: 1, dozensOfEggsInBasket: 2, bottlesOfMilkInBasket: 3, cansOfBeansInBasket: 4, selectedCurrency: .usd)
         sut.checkout(request: request)
         
         // Then
-        XCTAssertTrue(presenterMock.presentTotalCalled)
-        XCTAssertEqual(presenterMock.presentTotalResponse?.total, 11.97)
+        XCTAssertTrue(presenterSpy.presentTotalCalled)
+        XCTAssertEqual(presenterSpy.presentTotalResponse?.total, 11.97)
     }
     
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsEur() {
         // Given
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         sut.usdToEur = 2.0
         
@@ -101,14 +101,14 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.checkout(request: request)
         
         // Then
-        XCTAssertTrue(presenterMock.presentTotalCalled)
-        XCTAssertEqual(presenterMock.presentTotalResponse?.total, (11.97 * 2.0))
+        XCTAssertTrue(presenterSpy.presentTotalCalled)
+        XCTAssertEqual(presenterSpy.presentTotalResponse?.total, (11.97 * 2.0))
     }
     
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsGbp() {
         // Given
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         sut.usdToGbp = 3.0
         
@@ -117,103 +117,103 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.checkout(request: request)
         
         // Then
-        XCTAssertTrue(presenterMock.presentTotalCalled)
-        XCTAssertEqual(presenterMock.presentTotalResponse?.total, (11.97 * 3.0))
+        XCTAssertTrue(presenterSpy.presentTotalCalled)
+        XCTAssertEqual(presenterSpy.presentTotalResponse?.total, (11.97 * 3.0))
     }
     
     func testFetchCurrencyRates_CallsFetchRawCurrencyRatesInWorker_WithCorrectData() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
         // When
-        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
         sut.fetchCurrencyRates()
         
         // Then
-        XCTAssertTrue(workerMock.fetchRawCurrencyRatesCalled)
-        XCTAssertEqual(workerMock.fromCurrencyPassed, .usd)
-        XCTAssertEqual(workerMock.toCurrenciesPassed, [.eur, .gbp])
+        XCTAssertTrue(workerSpy.fetchRawCurrencyRatesCalled)
+        XCTAssertEqual(workerSpy.fromCurrencyPassed, .usd)
+        XCTAssertEqual(workerSpy.toCurrenciesPassed, [.eur, .gbp])
     }
     
     func testWhenReceivingSuccessFromWorker_CallsEnableCurrenciesInPresenter() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         
         // Then
-        XCTAssertTrue(presenterMock.enableCurrenciesCalled)
+        XCTAssertTrue(presenterSpy.enableCurrenciesCalled)
     }
     
     func testWhenReceivingSuccessFromWorker_CallsPresentCurrenciesUpdateMessageInPresenter() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         
         // Then
-        XCTAssertTrue(presenterMock.presentCurrenciesUpdateMessageCalled)
+        XCTAssertTrue(presenterSpy.presentCurrenciesUpdateMessageCalled)
     }
     
     func testWhenReceivingInvalidUrlFailureFromWorker_CallsPresentCurrenciesErrorMessageInPresenter() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         // When
-        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidUrl)
+        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidUrl)
         
         sut.fetchCurrencyRates()
         
         // Then
-        XCTAssertTrue(presenterMock.presentCurrenciesErrorMessageCalled)
+        XCTAssertTrue(presenterSpy.presentCurrenciesErrorMessageCalled)
     }
     
     func testWhenReceivingInvalidResponseFailureFromWorker_CallsPresentCurrenciesErrorMessageInPresenter() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
-        let presenterMock = BasketPresenterMock()
-        sut.presenter = presenterMock
+        let presenterSpy = BasketPresenterSpy()
+        sut.presenter = presenterSpy
         
         // When
-        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
         
         sut.fetchCurrencyRates()
         
         // Then
-        XCTAssertTrue(presenterMock.presentCurrenciesErrorMessageCalled)
+        XCTAssertTrue(presenterSpy.presentCurrenciesErrorMessageCalled)
     }
     
     func testWhenReceivingSuccessFromWorker_SetsCorrectRates() {
         // Given
-        let workerMock = CurrencyWorkerMock()
-        sut.worker = workerMock
+        let workerSpy = CurrencyWorkerSpy()
+        sut.worker = workerSpy
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         

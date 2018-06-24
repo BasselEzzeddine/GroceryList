@@ -30,8 +30,8 @@ class BasketPresenterUnitTests: XCTestCase {
         sut = BasketPresenter()
     }
     
-    // MARK: - Mocks
-    class BasketViewControllerMock: BasketPresenterOut {
+    // MARK: - Spies
+    class BasketViewControllerSpy: BasketPresenterOut {
         var displayTotalCalled = false
         var displayTotalViewModel: BasketModel.Checkout.ViewModel?
         
@@ -58,62 +58,62 @@ class BasketPresenterUnitTests: XCTestCase {
     // MARK: - Tests
     func testCallingPresentTotal_CallsDisplayTotalInViewController_WithCorrectData() {
         // Given
-        let viewControllerMock = BasketViewControllerMock()
-        sut.viewController = viewControllerMock
+        let viewControllerSpy = BasketViewControllerSpy()
+        sut.viewController = viewControllerSpy
         
         // When
         let response = BasketModel.Checkout.Response(total: 50.55)
         sut.presentTotal(response: response)
         
         // Then
-        XCTAssertTrue(viewControllerMock.displayTotalCalled)
-        XCTAssertEqual(viewControllerMock.displayTotalViewModel?.total, "50,55")
+        XCTAssertTrue(viewControllerSpy.displayTotalCalled)
+        XCTAssertEqual(viewControllerSpy.displayTotalViewModel?.total, "50,55")
     }
     
     func testCallingEnableCurrencies_CallsEnableCurrencySegmentedControlInViewController() {
         // Given
-        let viewControllerMock = BasketViewControllerMock()
-        sut.viewController = viewControllerMock
+        let viewControllerSpy = BasketViewControllerSpy()
+        sut.viewController = viewControllerSpy
         
         // When
         sut.enableCurrencies()
         
         // Then
-        XCTAssertTrue(viewControllerMock.enableCurrencySegmentedControlCalled)
+        XCTAssertTrue(viewControllerSpy.enableCurrencySegmentedControlCalled)
     }
     
     func testCallingPresentCurrenciesUpdateMessage_CallsUpdateInfoMessageInViewController_WithCorrectData() {
         // Given
-        let viewControllerMock = BasketViewControllerMock()
-        sut.viewController = viewControllerMock
+        let viewControllerSpy = BasketViewControllerSpy()
+        sut.viewController = viewControllerSpy
         
         // When
         sut.presentCurrenciesUpdateMessage()
         
         // Then
-        XCTAssertTrue(viewControllerMock.updateInfoMessageCalled)
+        XCTAssertTrue(viewControllerSpy.updateInfoMessageCalled)
         
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "'on' dd/MM/yyyy 'at' HH:mm"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
         
-        let viewModel = viewControllerMock.updateInfoMessageViewModel
+        let viewModel = viewControllerSpy.updateInfoMessageViewModel
         XCTAssertEqual(viewModel?.message, "Currency rates last updated \(dateString)")
     }
     
     func testCallingPresentCurrenciesErrorMessage_CallsUpdateInfoMessageInViewController_WithCorrectData() {
         // Given
-        let viewControllerMock = BasketViewControllerMock()
-        sut.viewController = viewControllerMock
+        let viewControllerSpy = BasketViewControllerSpy()
+        sut.viewController = viewControllerSpy
         
         // When
         sut.presentCurrenciesErrorMessage()
         
         // Then
-        XCTAssertTrue(viewControllerMock.updateInfoMessageCalled)
+        XCTAssertTrue(viewControllerSpy.updateInfoMessageCalled)
         
-        let viewModel = viewControllerMock.updateInfoMessageViewModel
+        let viewModel = viewControllerSpy.updateInfoMessageViewModel
         XCTAssertEqual(viewModel?.message, "Currency rates are unavailable for the moment")
     }
 }

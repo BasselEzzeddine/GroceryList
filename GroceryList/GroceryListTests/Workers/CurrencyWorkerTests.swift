@@ -33,8 +33,8 @@ class CurrencyWorkerTests: XCTestCase {
         sut = CurrencyWorker()
     }
     
-    // MARK: - Mocks
-    class CurrencyServiceMock: CurrencyService {
+    // MARK: - Spies
+    class CurrencyServiceSpy: CurrencyService {
         var fetchRawCurrencyRatesFromServerCalled = false
         var resultToBeReturned: ServiceResult<RawCurrencyRates>?
         
@@ -47,17 +47,17 @@ class CurrencyWorkerTests: XCTestCase {
     // MARK: - Tests
     func testCallingFetchRawCurrencyRates_CallsFetchRawCurrencyRatesFromServer_AndReturnsCorrectData_WhenHavingSuccess() {
         // Given
-        let serviceMock = CurrencyServiceMock()
-        sut.service = serviceMock
+        let serviceSpy = CurrencyServiceSpy()
+        sut.service = serviceSpy
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        serviceMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        serviceSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
         
         let result = try! sut.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
-        XCTAssertTrue(serviceMock.fetchRawCurrencyRatesFromServerCalled)
+        XCTAssertTrue(serviceSpy.fetchRawCurrencyRatesFromServerCalled)
         
         switch result! {
         case .Success(let rawCurrencyRates):
@@ -69,16 +69,16 @@ class CurrencyWorkerTests: XCTestCase {
     
     func testCallingFetchRawCurrencyRates_CallsFetchRawCurrencyRatesFromServer_AndReturnsCorrectData_WhenHavingFailure() {
         // Given
-        let serviceMock = CurrencyServiceMock()
-        sut.service = serviceMock
+        let serviceSpy = CurrencyServiceSpy()
+        sut.service = serviceSpy
         
         // When
-        serviceMock.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        serviceSpy.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
         
         let result = try! sut.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
-        XCTAssertTrue(serviceMock.fetchRawCurrencyRatesFromServerCalled)
+        XCTAssertTrue(serviceSpy.fetchRawCurrencyRatesFromServerCalled)
         
         switch result! {
         case .Success(_):
