@@ -18,15 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-UX-qC1">
-                                <rect key="frame" x="123.5" y="466" width="128" height="29"/>
-                                <segments>
-                                    <segment title="USD"/>
-                                    <segment title="EUR"/>
-                                    <segment title="GBP"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Basket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOx-7F-rLd">
                                 <rect key="frame" x="120" y="34" width="135" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -49,33 +40,33 @@
                                         <rect key="frame" x="140.5" y="24" width="94" height="29"/>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pez-Ot-WXe">
-                                        <rect key="frame" x="53.5" y="14.5" width="55" height="48"/>
+                                        <rect key="frame" x="21" y="14.5" width="87.5" height="48"/>
                                         <string key="text">Peas
-0,95$</string>
+0,95 USD</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZV-Tt-9ks">
-                                        <rect key="frame" x="58" y="91.5" width="50.5" height="48"/>
+                                        <rect key="frame" x="25.5" y="91.5" width="83" height="48"/>
                                         <string key="text">Eggs
-2,10$</string>
+2,10 USD</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-Ha-M73">
-                                        <rect key="frame" x="57" y="168.5" width="51.5" height="48"/>
+                                        <rect key="frame" x="24.5" y="168.5" width="84" height="48"/>
                                         <string key="text">Milk
-1,30$</string>
+1,30 USD</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jI5-Ge-Mdl">
-                                        <rect key="frame" x="54" y="245.5" width="54.5" height="48"/>
+                                        <rect key="frame" x="23" y="245.5" width="85.5" height="48"/>
                                         <string key="text">Beans
-0,73$</string>
+0,73 USD</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -147,13 +138,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L15-Cy-vjg">
-                                <rect key="frame" x="14" y="518" width="52" height="30"/>
+                                <rect key="frame" x="14" y="476" width="52" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alC-8U-PHG">
-                                <rect key="frame" x="179.5" y="518" width="16" height="30"/>
+                                <rect key="frame" x="179.5" y="476" width="16" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -164,23 +155,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-UX-qC1">
+                                <rect key="frame" x="233" y="477" width="128" height="29"/>
+                                <segments>
+                                    <segment title="USD"/>
+                                    <segment title="EUR"/>
+                                    <segment title="GBP"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Shm-UX-qC1" firstAttribute="top" secondItem="TI2-7w-Q8T" secondAttribute="bottom" constant="14" id="Ah1-Gt-iUD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Shm-UX-qC1" secondAttribute="trailing" constant="14" id="5zR-0e-n8g"/>
+                            <constraint firstItem="alC-8U-PHG" firstAttribute="top" secondItem="TI2-7w-Q8T" secondAttribute="bottom" constant="24" id="Bgr-GI-9bq"/>
                             <constraint firstItem="QBk-dG-UP6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Gmz-lM-UUj"/>
-                            <constraint firstItem="L15-Cy-vjg" firstAttribute="centerY" secondItem="alC-8U-PHG" secondAttribute="centerY" id="I8a-uD-gyY"/>
-                            <constraint firstItem="alC-8U-PHG" firstAttribute="top" secondItem="Shm-UX-qC1" secondAttribute="bottom" constant="24" id="J2f-g9-1DV"/>
-                            <constraint firstItem="alC-8U-PHG" firstAttribute="centerX" secondItem="Shm-UX-qC1" secondAttribute="centerX" id="JPi-CR-j6r"/>
+                            <constraint firstItem="Shm-UX-qC1" firstAttribute="centerY" secondItem="alC-8U-PHG" secondAttribute="centerY" id="HiC-bL-rvY"/>
                             <constraint firstItem="AOx-7F-rLd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="SFc-lc-Yha"/>
                             <constraint firstItem="56J-O2-9mN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V9V-Zl-vEa"/>
                             <constraint firstItem="AOx-7F-rLd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z64-ID-Frt"/>
+                            <constraint firstItem="alC-8U-PHG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cUG-Mq-Gcz"/>
                             <constraint firstItem="TI2-7w-Q8T" firstAttribute="top" secondItem="56J-O2-9mN" secondAttribute="bottom" constant="14" id="ctr-uL-Bls"/>
-                            <constraint firstItem="Shm-UX-qC1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="do8-Xa-dZL"/>
                             <constraint firstItem="TI2-7w-Q8T" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hAb-zi-Aek"/>
                             <constraint firstItem="L15-Cy-vjg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="kD4-OR-92p"/>
+                            <constraint firstItem="Shm-UX-qC1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="alC-8U-PHG" secondAttribute="trailing" constant="14" id="lFz-W4-Hkh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="56J-O2-9mN" secondAttribute="trailing" id="qoj-bR-y0l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QBk-dG-UP6" secondAttribute="trailing" constant="24" id="r59-qO-Nt6"/>
+                            <constraint firstItem="L15-Cy-vjg" firstAttribute="centerY" secondItem="alC-8U-PHG" secondAttribute="centerY" id="rYR-IE-nLx"/>
                             <constraint firstItem="56J-O2-9mN" firstAttribute="top" secondItem="AOx-7F-rLd" secondAttribute="bottom" constant="24" id="sXc-oE-7Ni"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QBk-dG-UP6" secondAttribute="bottom" constant="14" id="yjo-W1-4Lb"/>
                         </constraints>
