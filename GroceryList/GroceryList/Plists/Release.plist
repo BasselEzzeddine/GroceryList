@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>currency_endpoint</key>
+	<string>http://apilayer.net</string>
+	<key>currency_endpoint_key</key>
+	<string>4d2c873f835a3b3237ba5a8c5e67837e</string>
+</dict>
+</plist>

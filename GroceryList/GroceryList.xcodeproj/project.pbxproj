@@ -24,6 +24,16 @@
 		50DDF0B920DFA6C100D167FA /* BasketPresenterUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0B820DFA6C100D167FA /* BasketPresenterUnitTests.swift */; };
 		50DDF0BB20DFAE8B00D167FA /* BasketConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0BA20DFAE8B00D167FA /* BasketConfigurator.swift */; };
 		50DDF0BD20DFBCD400D167FA /* CurrencyWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0BC20DFBCD400D167FA /* CurrencyWorker.swift */; };
+		50DDF0BF20DFBF4900D167FA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0BE20DFBF4900D167FA /* CurrencyService.swift */; };
+		50DDF0C120DFBF5A00D167FA /* ServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0C020DFBF5A00D167FA /* ServicesHelper.swift */; };
+		50DDF0C920DFBFBB00D167FA /* Test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50DDF0C620DFBFBB00D167FA /* Test.plist */; };
+		50DDF0CA20DFBFBB00D167FA /* Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50DDF0C720DFBFBB00D167FA /* Debug.plist */; };
+		50DDF0CB20DFBFBB00D167FA /* Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50DDF0C820DFBFBB00D167FA /* Release.plist */; };
+		50DDF0CD20DFC05700D167FA /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0CC20DFC05700D167FA /* Configuration.swift */; };
+		50DDF0CF20DFC0ED00D167FA /* RawCurrencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0CE20DFC0ED00D167FA /* RawCurrencyRates.swift */; };
+		50DDF0D320DFC66000D167FA /* CurrencyServiceUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0D220DFC66000D167FA /* CurrencyServiceUnitTests.swift */; };
+		50DDF0D720DFC68500D167FA /* getCurrencyRates.json in Resources */ = {isa = PBXBuildFile; fileRef = 50DDF0D620DFC68400D167FA /* getCurrencyRates.json */; };
+		50DDF0DB20DFC6E100D167FA /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DDF0DA20DFC6E100D167FA /* MockServer.swift */; };
 		AED805F2A1D67F7F5E7D5D91 /* Pods_GroceryList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,14 +77,27 @@
 		50DDF0B820DFA6C100D167FA /* BasketPresenterUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenterUnitTests.swift; sourceTree = "<group>"; };
 		50DDF0BA20DFAE8B00D167FA /* BasketConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketConfigurator.swift; sourceTree = "<group>"; };
 		50DDF0BC20DFBCD400D167FA /* CurrencyWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyWorker.swift; sourceTree = "<group>"; };
+		50DDF0BE20DFBF4900D167FA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		50DDF0C020DFBF5A00D167FA /* ServicesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesHelper.swift; sourceTree = "<group>"; };
+		50DDF0C620DFBFBB00D167FA /* Test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Test.plist; sourceTree = "<group>"; };
+		50DDF0C720DFBFBB00D167FA /* Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Debug.plist; sourceTree = "<group>"; };
+		50DDF0C820DFBFBB00D167FA /* Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Release.plist; sourceTree = "<group>"; };
+		50DDF0CC20DFC05700D167FA /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		50DDF0CE20DFC0ED00D167FA /* RawCurrencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawCurrencyRates.swift; sourceTree = "<group>"; };
+		50DDF0D220DFC66000D167FA /* CurrencyServiceUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceUnitTests.swift; sourceTree = "<group>"; };
+		50DDF0D620DFC68400D167FA /* getCurrencyRates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCurrencyRates.json; sourceTree = "<group>"; };
+		50DDF0DA20DFC6E100D167FA /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		75FC17F211977DB186891B99 /* Pods-GroceryListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F8397BF9C07C0A00D33759C /* Pods_GroceryList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92BDDF0FD2097E630C2636A5 /* Pods-GroceryListTests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListTests.test.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests.test.xcconfig"; sourceTree = "<group>"; };
 		9543D7A1F3DEB65EC1E6F91C /* Pods-GroceryList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.release.xcconfig"; sourceTree = "<group>"; };
 		9CA8D87EEA45D950839C7647 /* Pods_GroceryListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBDF56B85AB1F2BC08057B1 /* Pods-GroceryListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListUITests/Pods-GroceryListUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B86422C4D85A9EDFD8C51D1D /* Pods_GroceryListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroceryListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB820E3FD6634B282C9E681 /* Pods-GroceryList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.debug.xcconfig"; sourceTree = "<group>"; };
 		E73073A54E9C27C6AAAF9C0B /* Pods-GroceryListTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBE6A2CDB07F62C12DA1888A /* Pods-GroceryList.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryList.test.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryList/Pods-GroceryList.test.xcconfig"; sourceTree = "<group>"; };
+		FD7E0F92AADD45BB9326D98C /* Pods-GroceryListUITests.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroceryListUITests.test.xcconfig"; path = "Pods/Target Support Files/Pods-GroceryListUITests/Pods-GroceryListUITests.test.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +137,9 @@
 				75FC17F211977DB186891B99 /* Pods-GroceryListTests.release.xcconfig */,
 				ABBDF56B85AB1F2BC08057B1 /* Pods-GroceryListUITests.debug.xcconfig */,
 				08C222DDBA43DA01656646D1 /* Pods-GroceryListUITests.release.xcconfig */,
+				FBE6A2CDB07F62C12DA1888A /* Pods-GroceryList.test.xcconfig */,
+				92BDDF0FD2097E630C2636A5 /* Pods-GroceryListTests.test.xcconfig */,
+				FD7E0F92AADD45BB9326D98C /* Pods-GroceryListUITests.test.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -178,7 +204,11 @@
 			isa = PBXGroup;
 			children = (
 				504DAEE120DE68E100EE1BD6 /* Info.plist */,
+				50DDF0D420DFC66900D167FA /* Mocks */,
+				50DDF0D920DFC6D300D167FA /* MockServer */,
 				50DDF0B720DFA43600D167FA /* Utilities */,
+				50DDF0D120DFC64000D167FA /* Services */,
+				50DDF0D020DFC63A00D167FA /* Workers */,
 				5022BC8B20DE96EC00F30652 /* Scenes */,
 			);
 			path = GroceryListTests;
@@ -196,6 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				504DAED620DE68E100EE1BD6 /* Info.plist */,
+				50DDF0C620DFBFBB00D167FA /* Test.plist */,
+				50DDF0C720DFBFBB00D167FA /* Debug.plist */,
+				50DDF0C820DFBFBB00D167FA /* Release.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -211,6 +244,8 @@
 		504DAEFB20DE6CEA00EE1BD6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				50DDF0C020DFBF5A00D167FA /* ServicesHelper.swift */,
+				50DDF0BE20DFBF4900D167FA /* CurrencyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -234,6 +269,7 @@
 		504DAEFE20DE6D0B00EE1BD6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				50DDF0CC20DFC05700D167FA /* Configuration.swift */,
 				50DDF0B320DFA33600D167FA /* Calculator.swift */,
 			);
 			path = Utilities;
@@ -242,6 +278,7 @@
 		504DAEFF20DE6D1B00EE1BD6 /* RawDataModels */ = {
 			isa = PBXGroup;
 			children = (
+				50DDF0CE20DFC0ED00D167FA /* RawCurrencyRates.swift */,
 			);
 			path = RawDataModels;
 			sourceTree = "<group>";
@@ -291,6 +328,45 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		50DDF0D020DFC63A00D167FA /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		50DDF0D120DFC64000D167FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50DDF0D220DFC66000D167FA /* CurrencyServiceUnitTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		50DDF0D420DFC66900D167FA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				50DDF0D520DFC67300D167FA /* MockFiles */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		50DDF0D520DFC67300D167FA /* MockFiles */ = {
+			isa = PBXGroup;
+			children = (
+				50DDF0D620DFC68400D167FA /* getCurrencyRates.json */,
+			);
+			path = MockFiles;
+			sourceTree = "<group>";
+		};
+		50DDF0D920DFC6D300D167FA /* MockServer */ = {
+			isa = PBXGroup;
+			children = (
+				50DDF0DA20DFC6E100D167FA /* MockServer.swift */,
+			);
+			path = MockServer;
+			sourceTree = "<group>";
+		};
 		56BE95B9489DCD9CFE322881 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +407,7 @@
 				504DAED720DE68E100EE1BD6 /* Sources */,
 				504DAED820DE68E100EE1BD6 /* Frameworks */,
 				504DAED920DE68E100EE1BD6 /* Resources */,
+				BA45D345093DA5D0700F6242 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,8 +487,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DDF0C920DFBFBB00D167FA /* Test.plist in Resources */,
+				50DDF0CA20DFBFBB00D167FA /* Debug.plist in Resources */,
 				504DAED520DE68E100EE1BD6 /* LaunchScreen.storyboard in Resources */,
 				504DAED220DE68E100EE1BD6 /* Assets.xcassets in Resources */,
+				50DDF0CB20DFBFBB00D167FA /* Release.plist in Resources */,
 				504DAED020DE68E000EE1BD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DDF0D720DFC68500D167FA /* getCurrencyRates.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +568,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BA45D345093DA5D0700F6242 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GroceryListTests/Pods-GroceryListTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D6174622F9C163BFE7656175 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -516,12 +621,16 @@
 			files = (
 				504DAECD20DE68E000EE1BD6 /* BasketViewController.swift in Sources */,
 				504DAECB20DE68E000EE1BD6 /* AppDelegate.swift in Sources */,
+				50DDF0BF20DFBF4900D167FA /* CurrencyService.swift in Sources */,
 				50DDF0B020DF980A00D167FA /* BasketModel.swift in Sources */,
 				5022BC9220DEAE5F00F30652 /* BasketPresenter.swift in Sources */,
+				50DDF0C120DFBF5A00D167FA /* ServicesHelper.swift in Sources */,
 				50DDF0BD20DFBCD400D167FA /* CurrencyWorker.swift in Sources */,
 				5022BC9020DEAE4800F30652 /* BasketInteractor.swift in Sources */,
 				50DDF0B420DFA33600D167FA /* Calculator.swift in Sources */,
+				50DDF0CF20DFC0ED00D167FA /* RawCurrencyRates.swift in Sources */,
 				50DDF0BB20DFAE8B00D167FA /* BasketConfigurator.swift in Sources */,
+				50DDF0CD20DFC05700D167FA /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +638,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50DDF0DB20DFC6E100D167FA /* MockServer.swift in Sources */,
 				50DDF0B220DF9FE000D167FA /* BasketInteractorUnitTests.swift in Sources */,
+				50DDF0D320DFC66000D167FA /* CurrencyServiceUnitTests.swift in Sources */,
 				50DDF0B620DFA42E00D167FA /* CalculatorUnitTests.swift in Sources */,
 				50DDF0B920DFA6C100D167FA /* BasketPresenterUnitTests.swift in Sources */,
 				5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */,
@@ -819,6 +930,130 @@
 			};
 			name = Release;
 		};
+		50DDF0C220DFBF9F00D167FA /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Test;
+		};
+		50DDF0C320DFBF9F00D167FA /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBE6A2CDB07F62C12DA1888A /* Pods-GroceryList.test.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
+				INFOPLIST_FILE = "$(SRCROOT)/GroceryList/Plists/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Test;
+		};
+		50DDF0C420DFBF9F00D167FA /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92BDDF0FD2097E630C2636A5 /* Pods-GroceryListTests.test.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
+				INFOPLIST_FILE = GroceryListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GroceryList.app/GroceryList";
+			};
+			name = Test;
+		};
+		50DDF0C520DFBF9F00D167FA /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7E0F92AADD45BB9326D98C /* Pods-GroceryListUITests.test.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
+				INFOPLIST_FILE = GroceryListUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GroceryList;
+			};
+			name = Test;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -826,6 +1061,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				504DAEED20DE68E100EE1BD6 /* Debug */,
+				50DDF0C220DFBF9F00D167FA /* Test */,
 				504DAEEE20DE68E100EE1BD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -835,6 +1071,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				504DAEF020DE68E100EE1BD6 /* Debug */,
+				50DDF0C320DFBF9F00D167FA /* Test */,
 				504DAEF120DE68E100EE1BD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -844,6 +1081,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				504DAEF320DE68E100EE1BD6 /* Debug */,
+				50DDF0C420DFBF9F00D167FA /* Test */,
 				504DAEF420DE68E100EE1BD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -853,6 +1091,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				504DAEF620DE68E100EE1BD6 /* Debug */,
+				50DDF0C520DFBF9F00D167FA /* Test */,
 				504DAEF720DE68E100EE1BD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
