@@ -173,4 +173,20 @@ class BasketInteractorUnitTests: XCTestCase {
         // Then
         XCTAssertTrue(presenterMock.presentCurrenciesErrorMessageCalled)
     }
+    
+    func testWhenReceivingSuccessFromWorker_SetsCorrectRates() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        // When
+        let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
+        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertEqual(sut.usdToEur, 1.5)
+        XCTAssertEqual(sut.usdToGbp, 2.0)
+    }
 }

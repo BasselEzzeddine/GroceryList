@@ -34,10 +34,19 @@ class BasketInteractor {
     let priceOfBottleOfMilk: Double = 1.30
     let priceOfCanOfBeans: Double = 0.73
     
+    var usdToEur: Double = 0.0
+    var usdToGbp: Double = 0.0
+    
     // MARK: - Methods
     func handleFetchSuccess(_ rawCurrencyRates: RawCurrencyRates) {
         presenter?.enableCurrencies()
         presenter?.presentCurrenciesUpdateMessage()
+        
+        guard let quotes = rawCurrencyRates.quotes else {
+            return
+        }
+        usdToEur = quotes.usdToEur
+        usdToGbp = quotes.usdToGbp
     }
     
     func handleFetchFailure(_ serviceErrorType: ServiceErrorType) {
