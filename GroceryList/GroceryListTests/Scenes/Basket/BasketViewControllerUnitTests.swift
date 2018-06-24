@@ -125,4 +125,13 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(interactorMock.checkoutRequest?.bottlesOfMilkInBasket, 3)
         XCTAssertEqual(interactorMock.checkoutRequest?.cansOfBeansInBasket, 4)
     }
+    
+    func testCallingDisplayTotal_DisplaysCorrectText() {
+        // When
+        let viewModel = BasketModel.Checkout.ViewModel(total: 50.55)
+        sut.displayTotal(viewModel: viewModel)
+        
+        // Then
+        XCTAssertEqual(sut.label_total.text, "50.55")
+    }
 }
