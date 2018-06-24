@@ -45,6 +45,11 @@ class BasketViewController: UIViewController {
     var cansOfBeansInBasket: Int = 0
     
     // MARK: - UIViewController
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        BasketConfigurator.sharedInstance.configure(viewController: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControlsDrivers()
