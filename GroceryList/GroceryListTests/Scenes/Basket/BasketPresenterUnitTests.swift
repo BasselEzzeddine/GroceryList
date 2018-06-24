@@ -101,4 +101,19 @@ class BasketPresenterUnitTests: XCTestCase {
         let viewModel = viewControllerMock.updateInfoMessageViewModel
         XCTAssertEqual(viewModel?.message, "Currency rates last updated \(dateString)")
     }
+    
+    func testCallingPresentCurrenciesErrorMessage_CallsUpdateInfoMessageInViewController_WithCorrectData() {
+        // Given
+        let viewControllerMock = BasketViewControllerMock()
+        sut.viewController = viewControllerMock
+        
+        // When
+        sut.presentCurrenciesErrorMessage()
+        
+        // Then
+        XCTAssertTrue(viewControllerMock.updateInfoMessageCalled)
+        
+        let viewModel = viewControllerMock.updateInfoMessageViewModel
+        XCTAssertEqual(viewModel?.message, "Currency rates are unavailable for the moment")
+    }
 }

@@ -46,5 +46,8 @@ extension BasketPresenter: BasketPresenterIn {
     }
     
     func presentCurrenciesErrorMessage() {
+        let message = "Currency rates are unavailable for the moment"
+        let viewModel = BasketModel.FetchCurrencyRates.ViewModel(message: message)
+        viewController?.updateInfoMessage(viewModel: viewModel)
     }
 }
