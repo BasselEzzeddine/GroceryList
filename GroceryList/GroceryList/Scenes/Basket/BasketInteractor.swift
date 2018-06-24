@@ -28,7 +28,7 @@ class BasketInteractor {
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
     func fetchCurrencyRates() {
-        worker.fetchRawCurrencyRates()
+        worker.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp])
     }
     
     func checkout(request: BasketModel.Checkout.Request) {

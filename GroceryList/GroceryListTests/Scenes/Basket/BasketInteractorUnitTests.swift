@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import RxSwift
 @testable import GroceryList
 
 class BasketInteractorUnitTests: XCTestCase {
@@ -43,9 +44,15 @@ class BasketInteractorUnitTests: XCTestCase {
     
     class CurrencyWorkerMock: CurrencyWorker {
         var fetchRawCurrencyRatesCalled = false
+        var fromCurrencyPassed: CurrencyService.Currency?
+        var toCurrenciesPassed: [CurrencyService.Currency]?
+        var resultToBeReturned: ServiceResult<RawCurrencyRates>?
         
-        override func fetchRawCurrencyRates() {
+        override func fetchRawCurrencyRates(fromCurrency: CurrencyService.Currency, toCurrencies: [CurrencyService.Currency]) -> Observable<ServiceResult<RawCurrencyRates>> {
             fetchRawCurrencyRatesCalled = true
+            fromCurrencyPassed = fromCurrency
+            toCurrenciesPassed = toCurrencies
+            return Observable.just(resultToBeReturned!)
         }
     }
     
@@ -64,15 +71,18 @@ class BasketInteractorUnitTests: XCTestCase {
         XCTAssertEqual(presenterMock.presentTotalResponse?.total, 11.97)
     }
     
-    func testFetchCurrencyRates_CallsFetchRawCurrencyRatesInWorker() {
+    func testFetchCurrencyRates_CallsFetchRawCurrencyRatesInWorker_WithCorrectData() {
         // Given
         let workerMock = CurrencyWorkerMock()
         sut.worker = workerMock
         
         // When
+        workerMock.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
         sut.fetchCurrencyRates()
         
         // Then
         XCTAssertTrue(workerMock.fetchRawCurrencyRatesCalled)
+        XCTAssertEqual(workerMock.fromCurrencyPassed, .usd)
+        XCTAssertEqual(workerMock.toCurrenciesPassed, [.eur, .gbp])
     }
 }
