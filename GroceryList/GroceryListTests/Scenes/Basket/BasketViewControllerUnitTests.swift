@@ -188,4 +188,16 @@ class BasketViewControllerUnitTests: XCTestCase {
         // Then
         XCTAssertTrue(sut.segmentedControl_currency.isEnabled)
     }
+    
+    func testCallingUpdateInfoMessage_DisplaysCorrectText() {
+        // Given
+        sut.label_info.text = ""
+        
+        // When
+        let viewModel = BasketModel.FetchCurrencyRates.ViewModel(message: "Message")
+        sut.updateInfoMessage(viewModel: viewModel)
+        
+        // Then
+        XCTAssertEqual(sut.label_info.text, "Message")
+    }
 }

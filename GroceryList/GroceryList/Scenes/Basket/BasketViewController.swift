@@ -143,5 +143,6 @@ extension BasketViewController: BasketViewControllerIn {
     }
     
     func updateInfoMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
+        label_info.text = viewModel.message
     }
 }
