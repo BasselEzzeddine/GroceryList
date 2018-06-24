@@ -37,8 +37,8 @@ class BasketPresenterUnitTests: XCTestCase {
         
         var enableCurrencySegmentedControlCalled = false
         
-        var displayCurrenciesUpdateMessageCalled = false
-        var displayCurrenciesUpdateMessageViewModel: BasketModel.FetchCurrencyRates.ViewModel?
+        var updateInfoMessageCalled = false
+        var updateInfoMessageViewModel: BasketModel.FetchCurrencyRates.ViewModel?
         
         func displayTotal(viewModel: BasketModel.Checkout.ViewModel) {
             displayTotalCalled = true
@@ -49,9 +49,9 @@ class BasketPresenterUnitTests: XCTestCase {
             enableCurrencySegmentedControlCalled = true
         }
         
-        func displayCurrenciesUpdateMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
-            displayCurrenciesUpdateMessageCalled = true
-            displayCurrenciesUpdateMessageViewModel = viewModel
+        func updateInfoMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
+            updateInfoMessageCalled = true
+            updateInfoMessageViewModel = viewModel
         }
     }
     
@@ -82,7 +82,7 @@ class BasketPresenterUnitTests: XCTestCase {
         XCTAssertTrue(viewControllerMock.enableCurrencySegmentedControlCalled)
     }
     
-    func testCallingPresentCurrenciesUpdateMessage_CallsDisplayCurrenciesUpdateMessageInViewController_WithCorrectData() {
+    func testCallingPresentCurrenciesUpdateMessage_CallsUpdateInfoMessageInViewController_WithCorrectData() {
         // Given
         let viewControllerMock = BasketViewControllerMock()
         sut.viewController = viewControllerMock
@@ -91,14 +91,14 @@ class BasketPresenterUnitTests: XCTestCase {
         sut.presentCurrenciesUpdateMessage()
         
         // Then
-        XCTAssertTrue(viewControllerMock.displayCurrenciesUpdateMessageCalled)
+        XCTAssertTrue(viewControllerMock.updateInfoMessageCalled)
         
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm on dd-MM-yyyy"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
         
-        let viewModel = viewControllerMock.displayCurrenciesUpdateMessageViewModel
+        let viewModel = viewControllerMock.updateInfoMessageViewModel
         XCTAssertEqual(viewModel?.message, "Currency rates last updated at \(dateString)")
     }
 }

@@ -17,7 +17,7 @@ protocol BasketPresenterIn {
 protocol BasketPresenterOut: class {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel)
     func enableCurrencySegmentedControl()
-    func displayCurrenciesUpdateMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel)
+    func updateInfoMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel)
 }
 
 class BasketPresenter {
@@ -41,6 +41,6 @@ extension BasketPresenter: BasketPresenterIn {
     func presentCurrenciesUpdateMessage() {
         let message = "Currency rates last updated at \(timestamp.now())"
         let viewModel = BasketModel.FetchCurrencyRates.ViewModel(message: message)
-        viewController?.displayCurrenciesUpdateMessage(viewModel: viewModel)
+        viewController?.updateInfoMessage(viewModel: viewModel)
     }
 }

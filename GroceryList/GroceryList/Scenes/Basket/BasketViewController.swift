@@ -13,7 +13,7 @@ import RxCocoa
 protocol BasketViewControllerIn {
     func displayTotal(viewModel: BasketModel.Checkout.ViewModel)
     func enableCurrencySegmentedControl()
-    func displayCurrenciesUpdateMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel)
+    func updateInfoMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel)
 }
 
 protocol BasketViewControllerOut {
@@ -136,6 +136,6 @@ extension BasketViewController: BasketViewControllerIn {
         segmentedControl_currency.isEnabled = true
     }
     
-    func displayCurrenciesUpdateMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
+    func updateInfoMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
     }
 }
