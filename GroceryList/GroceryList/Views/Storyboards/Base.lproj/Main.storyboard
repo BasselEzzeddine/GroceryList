@@ -129,22 +129,14 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oyY-aa-2Nh" secondAttribute="trailing" constant="14" id="zvN-xt-YCp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI2-7w-Q8T">
-                                <rect key="frame" x="147" y="426" width="81" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="checkout"/>
-                                <connections>
-                                    <action selector="button_checkout_touchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SzD-XD-8Rh"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L15-Cy-vjg">
-                                <rect key="frame" x="14" y="486" width="52" height="30"/>
+                                <rect key="frame" x="14" y="426" width="52" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0,0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alC-8U-PHG">
-                                <rect key="frame" x="169.5" y="486" width="36.5" height="30"/>
+                                <rect key="frame" x="169.5" y="426" width="36.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -156,7 +148,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Shm-UX-qC1">
-                                <rect key="frame" x="233" y="487" width="128" height="29"/>
+                                <rect key="frame" x="233" y="427" width="128" height="29"/>
                                 <segments>
                                     <segment title="USD"/>
                                     <segment title="EUR"/>
@@ -171,15 +163,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Shm-UX-qC1" secondAttribute="trailing" constant="14" id="5zR-0e-n8g"/>
-                            <constraint firstItem="alC-8U-PHG" firstAttribute="top" secondItem="TI2-7w-Q8T" secondAttribute="bottom" constant="24" id="Bgr-GI-9bq"/>
                             <constraint firstItem="QBk-dG-UP6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Gmz-lM-UUj"/>
                             <constraint firstItem="Shm-UX-qC1" firstAttribute="centerY" secondItem="alC-8U-PHG" secondAttribute="centerY" id="HiC-bL-rvY"/>
+                            <constraint firstItem="alC-8U-PHG" firstAttribute="top" secondItem="56J-O2-9mN" secondAttribute="bottom" constant="24" id="IFe-kW-Ulp"/>
                             <constraint firstItem="AOx-7F-rLd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="SFc-lc-Yha"/>
                             <constraint firstItem="56J-O2-9mN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V9V-Zl-vEa"/>
                             <constraint firstItem="AOx-7F-rLd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z64-ID-Frt"/>
                             <constraint firstItem="alC-8U-PHG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cUG-Mq-Gcz"/>
-                            <constraint firstItem="TI2-7w-Q8T" firstAttribute="top" secondItem="56J-O2-9mN" secondAttribute="bottom" constant="24" id="ctr-uL-Bls"/>
-                            <constraint firstItem="TI2-7w-Q8T" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hAb-zi-Aek"/>
                             <constraint firstItem="L15-Cy-vjg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="kD4-OR-92p"/>
                             <constraint firstItem="Shm-UX-qC1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="alC-8U-PHG" secondAttribute="trailing" constant="14" id="lFz-W4-Hkh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="56J-O2-9mN" secondAttribute="trailing" id="qoj-bR-y0l"/>
@@ -191,7 +181,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="button_checkout" destination="TI2-7w-Q8T" id="Fzq-fD-tnM"/>
                         <outlet property="label_beans" destination="fRH-Kk-J4Q" id="7j5-lw-4vZ"/>
                         <outlet property="label_eggs" destination="4Cz-8U-VBn" id="NVH-Bi-osP"/>
                         <outlet property="label_info" destination="QBk-dG-UP6" id="W1e-tT-mey"/>

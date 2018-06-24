@@ -110,7 +110,59 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(sut.label_beans.text, "4 cans")
     }
     
-    func testClickingOnCheckoutButton_CallsCheckoutInInteractor_WithCorrectData() {
+    func testChangingPeasStepperValue_CallsCheckoutInInteractor() {
+        // Given
+        let interactorSpy = BasketInteractorSpy()
+        sut.interactor = interactorSpy
+        
+        // When
+        sut.stepper_peas.value = 1
+        sut.stepper_peas.sendActions(for: .valueChanged)
+        
+        // Then
+        XCTAssertTrue(interactorSpy.checkoutCalled)
+    }
+    
+    func testChangingEggsStepperValue_CallsCheckoutInInteractor() {
+        // Given
+        let interactorSpy = BasketInteractorSpy()
+        sut.interactor = interactorSpy
+        
+        // When
+        sut.stepper_eggs.value = 2
+        sut.stepper_eggs.sendActions(for: .valueChanged)
+        
+        // Then
+        XCTAssertTrue(interactorSpy.checkoutCalled)
+    }
+    
+    func testChangingMilkStepperValue_CallsCheckoutInInteractor() {
+        // Given
+        let interactorSpy = BasketInteractorSpy()
+        sut.interactor = interactorSpy
+        
+        // When
+        sut.stepper_milk.value = 3
+        sut.stepper_milk.sendActions(for: .valueChanged)
+        
+        // Then
+        XCTAssertTrue(interactorSpy.checkoutCalled)
+    }
+    
+    func testChangingBeansStepperValue_CallsCheckoutInInteractor() {
+        // Given
+        let interactorSpy = BasketInteractorSpy()
+        sut.interactor = interactorSpy
+        
+        // When
+        sut.stepper_beans.value = 4
+        sut.stepper_beans.sendActions(for: .valueChanged)
+        
+        // Then
+        XCTAssertTrue(interactorSpy.checkoutCalled)
+    }
+    
+    func testCallingPerformCheckout_CallsCheckoutInInteractor_WithCorrectItemsInBasket() {
         // Given
         let interactorSpy = BasketInteractorSpy()
         sut.interactor = interactorSpy
@@ -121,7 +173,7 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.cansOfBeansInBasket = 4
         
         // When
-        sut.button_checkout_touchUpInside(sut.button_checkout)
+        sut.performCheckout()
         
         // Then
         XCTAssertTrue(interactorSpy.checkoutCalled)
@@ -130,86 +182,48 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(interactorSpy.checkoutRequest?.dozensOfEggsInBasket, 2)
         XCTAssertEqual(interactorSpy.checkoutRequest?.bottlesOfMilkInBasket, 3)
         XCTAssertEqual(interactorSpy.checkoutRequest?.cansOfBeansInBasket, 4)
-        XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .usd)
     }
     
-    func testClickingOnCheckoutButton_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsUsd() {
+    func testCallingPerformCheckout_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsUsd() {
         // Given
         let interactorSpy = BasketInteractorSpy()
         sut.interactor = interactorSpy
         
         // When
         sut.segmentedControl_currency.selectedSegmentIndex = 0
-        sut.button_checkout_touchUpInside(sut.button_checkout)
+        sut.performCheckout()
         
         // Then
         XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .usd)
     }
     
-    func testClickingOnCheckoutButton_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsEur() {
+    func testCallingPerformCheckout_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsEur() {
         // Given
         let interactorSpy = BasketInteractorSpy()
         sut.interactor = interactorSpy
         
         // When
         sut.segmentedControl_currency.selectedSegmentIndex = 1
-        sut.button_checkout_touchUpInside(sut.button_checkout)
+        sut.performCheckout()
         
         // Then
         XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .eur)
     }
     
-    func testClickingOnCheckoutButton_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsGbp() {
+    func testCallingPerformCheckout_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsGbp() {
         // Given
         let interactorSpy = BasketInteractorSpy()
         sut.interactor = interactorSpy
         
         // When
         sut.segmentedControl_currency.selectedSegmentIndex = 2
-        sut.button_checkout_touchUpInside(sut.button_checkout)
+        sut.performCheckout()
         
         // Then
         XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .gbp)
     }
     
-    func testchangingValueOfCurrencySegmentedControl_CallsCheckoutInInteractor_WithCorrectData() {
-        // Given
-        let interactorSpy = BasketInteractorSpy()
-        sut.interactor = interactorSpy
-        
-        sut.bagsOfPeasInBasket = 1
-        sut.dozensOfEggsInBasket = 2
-        sut.bottlesOfMilkInBasket = 3
-        sut.cansOfBeansInBasket = 4
-        
-        // When
-        sut.segmentedControl_currency.selectedSegmentIndex = 0
-        sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
-        
-        // Then
-        XCTAssertTrue(interactorSpy.checkoutCalled)
-        
-        XCTAssertEqual(interactorSpy.checkoutRequest?.bagsOfPeasInBasket, 1)
-        XCTAssertEqual(interactorSpy.checkoutRequest?.dozensOfEggsInBasket, 2)
-        XCTAssertEqual(interactorSpy.checkoutRequest?.bottlesOfMilkInBasket, 3)
-        XCTAssertEqual(interactorSpy.checkoutRequest?.cansOfBeansInBasket, 4)
-        XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .usd)
-    }
-    
-    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsUsd() {
-        // Given
-        let interactorSpy = BasketInteractorSpy()
-        sut.interactor = interactorSpy
-        
-        // When
-        sut.segmentedControl_currency.selectedSegmentIndex = 0
-        sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
-        
-        // Then
-        XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .usd)
-    }
-    
-    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsEur() {
+    func testchangingValueOfCurrencySegmentedControl_CallsCheckoutInInteractor() {
         // Given
         let interactorSpy = BasketInteractorSpy()
         sut.interactor = interactorSpy
@@ -219,20 +233,7 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.segmentedControl_currency_valueChanged(sut.segmentedControl_currency)
         
         // Then
-        XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .eur)
-    }
-    
-    func testchangingValueOfCurrencySegmentedControl_PassesCorrectCurrencyToInteractor_WhenSelectedCurrencyIsGbp() {
-        // Given
-        let interactorSpy = BasketInteractorSpy()
-        sut.interactor = interactorSpy
-        
-        // When
-        sut.segmentedControl_currency.selectedSegmentIndex = 2
-        sut.button_checkout_touchUpInside(sut.button_checkout)
-        
-        // Then
-        XCTAssertEqual(interactorSpy.checkoutRequest?.selectedCurrency, .gbp)
+        XCTAssertTrue(interactorSpy.checkoutCalled)
     }
     
     func testCallingDisplayTotal_DisplaysCorrectText() {

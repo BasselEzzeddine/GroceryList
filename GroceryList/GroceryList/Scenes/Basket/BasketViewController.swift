@@ -34,7 +34,6 @@ class BasketViewController: UIViewController {
     @IBOutlet weak var label_milk: UILabel!
     @IBOutlet weak var label_beans: UILabel!
     
-    @IBOutlet weak var button_checkout: UIButton!
     @IBOutlet weak var segmentedControl_currency: UISegmentedControl!
     @IBOutlet weak var label_total: UILabel!
     @IBOutlet weak var label_info: UILabel!
@@ -63,10 +62,6 @@ class BasketViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func button_checkout_touchUpInside(_ sender: Any) {
-        performCheckout()
-    }
-    
     @IBAction func segmentedControl_currency_valueChanged(_ sender: Any) {
         performCheckout()
     }
@@ -80,6 +75,7 @@ class BasketViewController: UIViewController {
         
         peasDriver.drive(onNext: { value in
             self.bagsOfPeasInBasket = value
+            self.performCheckout()
         }).disposed(by: disposeBag)
         
         peasDriver.map { "\($0) bags" }
@@ -93,6 +89,7 @@ class BasketViewController: UIViewController {
         
         eggsDriver.drive(onNext: { value in
             self.dozensOfEggsInBasket = value
+            self.performCheckout()
         }).disposed(by: disposeBag)
         
         eggsDriver.map { "\($0) dozens" }
@@ -106,6 +103,7 @@ class BasketViewController: UIViewController {
         
         milkDriver.drive(onNext: { value in
             self.bottlesOfMilkInBasket = value
+            self.performCheckout()
         }).disposed(by: disposeBag)
         
         milkDriver.map { "\($0) bottles" }
@@ -119,6 +117,7 @@ class BasketViewController: UIViewController {
         
         beansDriver.drive(onNext: { value in
             self.cansOfBeansInBasket = value
+            self.performCheckout()
         }).disposed(by: disposeBag)
         
         beansDriver.map { "\($0) cans" }
