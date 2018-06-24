@@ -18,6 +18,7 @@ enum BasketModel {
         }
         
         struct ViewModel {
+            var message: String
         }
     }
     

@@ -37,6 +37,9 @@ class BasketPresenterUnitTests: XCTestCase {
         
         var enableCurrencySegmentedControlCalled = false
         
+        var displayCurrenciesUpdateMessageCalled = false
+        var displayCurrenciesUpdateMessageViewModel: BasketModel.FetchCurrencyRates.ViewModel?
+        
         func displayTotal(viewModel: BasketModel.Checkout.ViewModel) {
             displayTotalCalled = true
             displayTotalViewModel = viewModel
@@ -44,6 +47,11 @@ class BasketPresenterUnitTests: XCTestCase {
         
         func enableCurrencySegmentedControl() {
             enableCurrencySegmentedControlCalled = true
+        }
+        
+        func displayCurrenciesUpdateMessage(viewModel: BasketModel.FetchCurrencyRates.ViewModel) {
+            displayCurrenciesUpdateMessageCalled = true
+            displayCurrenciesUpdateMessageViewModel = viewModel
         }
     }
     
@@ -72,5 +80,25 @@ class BasketPresenterUnitTests: XCTestCase {
         
         // Then
         XCTAssertTrue(viewControllerMock.enableCurrencySegmentedControlCalled)
+    }
+    
+    func testCallingPresentCurrenciesUpdateMessage_CallsDisplayCurrenciesUpdateMessageInViewController_WithCorrectData() {
+        // Given
+        let viewControllerMock = BasketViewControllerMock()
+        sut.viewController = viewControllerMock
+        
+        // When
+        sut.presentCurrenciesUpdateMessage()
+        
+        // Then
+        XCTAssertTrue(viewControllerMock.displayCurrenciesUpdateMessageCalled)
+        
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm on dd-MM-yyyy"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        
+        let viewModel = viewControllerMock.displayCurrenciesUpdateMessageViewModel
+        XCTAssertEqual(viewModel?.message, "Currency rates last updated at \(dateString)")
     }
 }
