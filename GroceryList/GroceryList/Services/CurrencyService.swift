@@ -16,15 +16,25 @@ class CurrencyService {
     var currencyEndpoint = Configuration.init().currencyEndpoint()
     let currencyEndpointKey = Configuration.init().currencyEndpointKey()
     
+    enum Currency: String {
+        case usd = "USD"
+        case eur = "EUR"
+        case gbp = "GBP"
+    }
+    
     // MARK: - Methods
-    func fetchRawCurrencyRatesFromServer() -> Observable<ServiceResult<RawCurrencyRates>> {
+    func fetchRawCurrencyRatesFromServer(fromCurrency: Currency, toCurrencies: [Currency]) -> Observable<ServiceResult<RawCurrencyRates>> {
         guard var urlComponents = URLComponents(string: "\(currencyEndpoint)/api/live") else {
             return Observable.just(ServiceResult.Failure(.invalidUrl))
         }
         
+        let source = fromCurrency.rawValue
+        let currencies = toCurrencies.map { $0.rawValue }.joined(separator: ",")
+        
         urlComponents.queryItems = [
             URLQueryItem(name: "access_key", value: currencyEndpointKey),
-            URLQueryItem(name: "currencies", value: "EUR,GBP"),
+            URLQueryItem(name: "source", value: source),
+            URLQueryItem(name: "currencies", value: currencies),
             URLQueryItem(name: "format", value: String(1))
         ]
         
