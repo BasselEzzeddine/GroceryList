@@ -132,6 +132,6 @@ class BasketViewControllerUnitTests: XCTestCase {
         sut.displayTotal(viewModel: viewModel)
         
         // Then
-        XCTAssertEqual(sut.label_total.text, "50.55")
+        XCTAssertEqual(sut.label_total.text, "50,55")
     }
 }
