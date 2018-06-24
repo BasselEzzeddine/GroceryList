@@ -29,6 +29,11 @@ class BasketInteractor {
     private let calculator = Calculator()
     private let bag = DisposeBag()
     
+    let priceOfBagOfPeas: Double = 0.95
+    let priceOfDozenOfEggs: Double = 2.10
+    let priceOfBottleOfMilk: Double = 1.30
+    let priceOfCanOfBeans: Double = 0.73
+    
     // MARK: - Methods
     func handleFetchSuccess(_ rawCurrencyRates: RawCurrencyRates) {
         presenter?.enableCurrencies()
@@ -60,7 +65,7 @@ extension BasketInteractor: BasketInteractorIn {
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
-        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket)
+        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans)
         let response = BasketModel.Checkout.Response(total: total)
         presenter?.presentTotal(response: response)
     }
