@@ -15,6 +15,7 @@ protocol BasketViewControllerIn {
 }
 
 protocol BasketViewControllerOut {
+    func fetchCurrencyRates()
     func checkout(request: BasketModel.Checkout.Request)
 }
 
@@ -53,6 +54,7 @@ class BasketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControlsDrivers()
+        interactor?.fetchCurrencyRates()
     }
     
     // MARK: - Actions

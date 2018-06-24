@@ -9,6 +9,7 @@
 import Foundation
 
 protocol BasketInteractorIn {
+    func fetchCurrencyRates()
     func checkout(request: BasketModel.Checkout.Request)
 }
 
@@ -25,6 +26,10 @@ class BasketInteractor {
 
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
+    func fetchCurrencyRates() {
+        
+    }
+    
     func checkout(request: BasketModel.Checkout.Request) {
         let total = calculator.calculateTotalAmountOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket)
         let response = BasketModel.Checkout.Response(total: total)

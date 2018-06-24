@@ -10,6 +10,17 @@ import Foundation
 
 enum BasketModel {
     
+    enum FetchCurrencyRates {
+        struct Request {
+        }
+        
+        struct Response {
+        }
+        
+        struct ViewModel {
+        }
+    }
+    
     enum Checkout {
         struct Request {
             var bagsOfPeasInBasket: Int = 0

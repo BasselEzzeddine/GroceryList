@@ -224,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				504DAF0020DE6D3000EE1BD6 /* Storyboards */,
-				504DAF0120DE6D4000EE1BD6 /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,13 +250,6 @@
 				504DAECE20DE68E000EE1BD6 /* Main.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		504DAF0120DE6D4000EE1BD6 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Custom;
 			sourceTree = "<group>";
 		};
 		504DAF0220DE6D5100EE1BD6 /* Scenes */ = {

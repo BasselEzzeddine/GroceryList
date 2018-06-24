@@ -37,8 +37,14 @@ class BasketViewControllerUnitTests: XCTestCase {
     
     // MARK: - Mocks
     class BasketInteractorMock: BasketViewControllerOut {
+        var fetchCurrencyRatesCalled = false
+        
         var checkoutCalled = false
         var checkoutRequest: BasketModel.Checkout.Request?
+        
+        func fetchCurrencyRates() {
+            fetchCurrencyRatesCalled = true
+        }
         
         func checkout(request: BasketModel.Checkout.Request) {
             checkoutCalled = true
@@ -133,5 +139,17 @@ class BasketViewControllerUnitTests: XCTestCase {
         
         // Then
         XCTAssertEqual(sut.label_total.text, "50,55")
+    }
+    
+    func testWhenViewLoads_CallsFetchCurrencyRates() {
+        // Given
+        let interactorMock = BasketInteractorMock()
+        sut.interactor = interactorMock
+        
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssertTrue(interactorMock.fetchCurrencyRatesCalled)
     }
 }
