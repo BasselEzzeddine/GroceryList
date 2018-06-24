@@ -11,6 +11,7 @@ import Foundation
 protocol BasketPresenterIn {
     func presentTotal(response: BasketModel.Checkout.Response)
     func enableCurrencies()
+    func presentCurrenciesUpdateMessage()
 }
 
 protocol BasketPresenterOut: class {
@@ -31,5 +32,8 @@ extension BasketPresenter: BasketPresenterIn {
     }
     
     func enableCurrencies() {
+    }
+    
+    func presentCurrenciesUpdateMessage() {
     }
 }

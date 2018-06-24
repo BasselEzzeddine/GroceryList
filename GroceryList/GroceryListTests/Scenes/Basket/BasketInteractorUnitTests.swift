@@ -38,6 +38,7 @@ class BasketInteractorUnitTests: XCTestCase {
         var presentTotalResponse: BasketModel.Checkout.Response?
         
         var enableCurrenciesCalled = false
+        var presentCurrenciesUpdateMessageCalled = false
         
         func presentTotal(response: BasketModel.Checkout.Response) {
             presentTotalCalled = true
@@ -46,6 +47,10 @@ class BasketInteractorUnitTests: XCTestCase {
         
         func enableCurrencies() {
             enableCurrenciesCalled = true
+        }
+        
+        func presentCurrenciesUpdateMessage() {
+            presentCurrenciesUpdateMessageCalled = true
         }
     }
     
@@ -109,5 +114,23 @@ class BasketInteractorUnitTests: XCTestCase {
         
         // Then
         XCTAssertTrue(presenterMock.enableCurrenciesCalled)
+    }
+    
+    func testWhenReceivingSuccessFromWorker_CallsPresentCurrenciesUpdateMessageInPresenter() {
+        // Given
+        let workerMock = CurrencyWorkerMock()
+        sut.worker = workerMock
+        
+        let presenterMock = BasketPresenterMock()
+        sut.presenter = presenterMock
+        
+        // When
+        let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
+        workerMock.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        
+        sut.fetchCurrencyRates()
+        
+        // Then
+        XCTAssertTrue(presenterMock.presentCurrenciesUpdateMessageCalled)
     }
 }
