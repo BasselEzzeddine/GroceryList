@@ -17,7 +17,7 @@ class Calculator {
     let priceOfCanOfBeans: Double = 0.73
     
     // MARK: - Methods
-    func calculateTotalAmountOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int) -> Double {
+    func calculateTotalPriceOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int) -> Double {
         var result: Double = 0
         result += Double(bagsOfPeas) * priceOfBagOfPeas
         result += Double(dozensOfEggs) * priceOfDozenOfEggs
