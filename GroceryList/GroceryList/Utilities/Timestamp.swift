@@ -12,8 +12,8 @@ class Timestamp {
     
     // MARK: - Methods
     func now() -> String {
-        let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm on dd-MM-yyyy"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "'on' dd/MM/yyyy 'at' HH:mm"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
         return dateString

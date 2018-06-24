@@ -94,11 +94,11 @@ class BasketPresenterUnitTests: XCTestCase {
         XCTAssertTrue(viewControllerMock.updateInfoMessageCalled)
         
         let dateFormatter : DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm on dd-MM-yyyy"
+        dateFormatter.dateFormat = "'on' dd/MM/yyyy 'at' HH:mm"
         let date = Date()
         let dateString = dateFormatter.string(from: date)
         
         let viewModel = viewControllerMock.updateInfoMessageViewModel
-        XCTAssertEqual(viewModel?.message, "Currency rates last updated at \(dateString)")
+        XCTAssertEqual(viewModel?.message, "Currency rates last updated \(dateString)")
     }
 }

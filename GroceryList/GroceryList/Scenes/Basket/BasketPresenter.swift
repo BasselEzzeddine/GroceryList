@@ -39,7 +39,7 @@ extension BasketPresenter: BasketPresenterIn {
     }
     
     func presentCurrenciesUpdateMessage() {
-        let message = "Currency rates last updated at \(timestamp.now())"
+        let message = "Currency rates last updated \(timestamp.now())"
         let viewModel = BasketModel.FetchCurrencyRates.ViewModel(message: message)
         viewController?.updateInfoMessage(viewModel: viewModel)
     }
