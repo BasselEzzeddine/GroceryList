@@ -11,12 +11,12 @@ import Foundation
 class Calculator {
     
     // MARK: - Methods
-    func calculateTotalPriceOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int, priceOfBagOfPeas: Double, priceOfDozenOfEggs: Double, priceOfBottleOfMilk: Double, priceOfCanOfBeans: Double) -> Double {
+    func calculateTotalPriceOfBasket(bagsOfPeas: Int, dozensOfEggs: Int, bottlesOfMilk: Int, cansOfBeans: Int, priceOfBagOfPeas: Double, priceOfDozenOfEggs: Double, priceOfBottleOfMilk: Double, priceOfCanOfBeans: Double, rate: Double) -> Double {
         var result: Double = 0
         result += Double(bagsOfPeas) * priceOfBagOfPeas
         result += Double(dozensOfEggs) * priceOfDozenOfEggs
         result += Double(bottlesOfMilk) * priceOfBottleOfMilk
         result += Double(cansOfBeans) * priceOfCanOfBeans
-        return result
+        return (result * rate)
     }
 }

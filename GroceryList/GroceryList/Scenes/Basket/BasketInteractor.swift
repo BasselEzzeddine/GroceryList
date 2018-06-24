@@ -74,7 +74,7 @@ extension BasketInteractor: BasketInteractorIn {
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
-        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans)
+        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeas: priceOfBagOfPeas, priceOfDozenOfEggs: priceOfDozenOfEggs, priceOfBottleOfMilk: priceOfBottleOfMilk, priceOfCanOfBeans: priceOfCanOfBeans, rate: 1)
         let response = BasketModel.Checkout.Response(total: total)
         presenter?.presentTotal(response: response)
     }
