@@ -144,6 +144,14 @@ class BasketViewControllerUnitTests: XCTestCase {
         XCTAssertEqual(sut.label_total.text, "50,55")
     }
     
+    func testWhenViewLoads_DisablesCurrencySegmentedControl() {
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssertFalse(sut.segmentedControl_currency.isEnabled)
+    }
+    
     func testWhenViewLoads_CallsFetchCurrencyRatesInInteractor() {
         // Given
         let interactorMock = BasketInteractorMock()

@@ -55,6 +55,7 @@ class BasketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControlsDrivers()
+        disableCurrencySegmentedControl()
         interactor?.fetchCurrencyRates()
     }
     
@@ -117,6 +118,10 @@ class BasketViewController: UIViewController {
         beansDriver.map { "\($0) cans" }
             .drive(label_beans.rx.text)
             .disposed(by: disposeBag)
+    }
+    
+    func disableCurrencySegmentedControl() {
+        segmentedControl_currency.isEnabled = false
     }
 }
 
