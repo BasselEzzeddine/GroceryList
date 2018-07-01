@@ -13,20 +13,17 @@ class BasketViewControllerUnitTests: XCTestCase {
     
     // MARK: - Properties
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    var window: UIWindow!
     var sut: BasketViewController!
     
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
-        window = UIWindow()
         setupSUT()
-        loadView()
+        UIApplication.shared.keyWindow?.rootViewController = sut
     }
     
     override func tearDown() {
         sut = nil
-        window = nil
         super.tearDown()
     }
     
@@ -50,11 +47,6 @@ class BasketViewControllerUnitTests: XCTestCase {
             checkoutCalled = true
             checkoutRequest = request
         }
-    }
-    
-    // MARK: - Methods
-    func loadView() {
-        window.addSubview(sut.view)
     }
     
     // MARK: - Tests
