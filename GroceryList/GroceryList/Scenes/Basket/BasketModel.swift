@@ -18,17 +18,17 @@ enum BasketModel {
         }
         
         struct ViewModel {
-            var message: String
+            let message: String
         }
     }
     
     enum Checkout {
         struct Request {
-            var bagsOfPeasInBasket: Int = 0
-            var dozensOfEggsInBasket: Int = 0
-            var bottlesOfMilkInBasket: Int = 0
-            var cansOfBeansInBasket: Int = 0
-            var selectedCurrency: Currency
+            let bagsOfPeasInBasket: Int
+            let dozensOfEggsInBasket: Int
+            let bottlesOfMilkInBasket: Int
+            let cansOfBeansInBasket: Int
+            let selectedCurrency: Currency
             
             enum Currency: String {
                 case usd
@@ -38,11 +38,11 @@ enum BasketModel {
         }
         
         struct Response {
-            var total: Double = 0.0
+            let total: Double
         }
         
         struct ViewModel {
-            var total: String
+            let total: String
         }
     }
 }

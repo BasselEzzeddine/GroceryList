@@ -29,7 +29,7 @@ class BasketViewControllerUnitTests: XCTestCase {
     
     // MARK: - Setup
     func setupSUT() {
-        sut = storyboard.instantiateViewController(withIdentifier: "BasketViewController") as! BasketViewController
+        sut = storyboard.instantiateViewController(withIdentifier: "BasketViewController") as? BasketViewController
     }
     
     // MARK: - Spies

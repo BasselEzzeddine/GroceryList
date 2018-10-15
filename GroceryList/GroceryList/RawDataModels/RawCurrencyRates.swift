@@ -9,34 +9,20 @@
 import Foundation
 
 struct RawCurrencyRates: Decodable, Equatable {
-    var success: Bool
-    var terms: String
-    var privacy: String
-    var timestamp: Int
-    var source: String
-    var quotes: Quotes?
+    let success: Bool
+    let terms: String
+    let privacy: String
+    let timestamp: Int
+    let source: String
+    let quotes: Quotes?
     
     struct Quotes: Decodable, Equatable {
-        var usdToEur: Double
-        var usdToGbp: Double
+        let usdToEur: Double
+        let usdToGbp: Double
         
         enum CodingKeys: String, CodingKey {
             case usdToEur = "USDEUR"
             case usdToGbp = "USDGBP"
         }
     }
-}
-
-func ==(lhs: RawCurrencyRates, rhs: RawCurrencyRates) -> Bool {
-    return lhs.success == rhs.success
-        && lhs.terms == rhs.terms
-        && lhs.privacy == rhs.privacy
-        && lhs.timestamp == rhs.timestamp
-        && lhs.source == rhs.source
-        && lhs.quotes == rhs.quotes
-}
-
-func ==(lhs: RawCurrencyRates.Quotes, rhs: RawCurrencyRates.Quotes) -> Bool {
-    return lhs.usdToEur == rhs.usdToEur
-        && lhs.usdToGbp == rhs.usdToGbp
 }

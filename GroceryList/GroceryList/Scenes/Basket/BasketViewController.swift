@@ -40,6 +40,7 @@ class BasketViewController: UIViewController {
     
     // MARK: - Properties
     var interactor: BasketViewControllerOut?
+    private let configurator = BasketConfigurator()
     private let disposeBag = DisposeBag()
     
     var bagsOfPeasInBasket: Int = 0
@@ -50,7 +51,7 @@ class BasketViewController: UIViewController {
     // MARK: - UIViewController
     override func awakeFromNib() {
         super.awakeFromNib()
-        BasketConfigurator.sharedInstance.configure(viewController: self)
+        configurator.configure(viewController: self)
     }
     
     override func viewDidLoad() {

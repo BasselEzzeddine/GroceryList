@@ -19,9 +19,6 @@ extension BasketPresenter: BasketInteractorOut {
 
 class BasketConfigurator {
     
-    // MARK: - Properties
-    static let sharedInstance = BasketConfigurator()
-    
     // MARK: - Methods
     func configure(viewController: BasketViewController) {
         let presenter = BasketPresenter()
