@@ -15,9 +15,4 @@ target 'GroceryList' do
     pod 'RxTest', '~> 4.2'
   end
 
-  target 'GroceryListUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

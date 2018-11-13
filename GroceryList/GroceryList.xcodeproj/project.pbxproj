@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09B2A905532D3E87E36876E7 /* Pods_GroceryListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA8D87EEA45D950839C7647 /* Pods_GroceryListUITests.framework */; };
 		23978A684942E7ABAE647286 /* Pods_GroceryListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B86422C4D85A9EDFD8C51D1D /* Pods_GroceryListTests.framework */; };
 		5022BC8E20DE974100F30652 /* BasketViewControllerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC8D20DE974100F30652 /* BasketViewControllerUnitTests.swift */; };
 		5022BC9020DEAE4800F30652 /* BasketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5022BC8F20DEAE4800F30652 /* BasketInteractor.swift */; };
@@ -46,13 +45,6 @@
 			remoteGlobalIDString = 504DAEC620DE68E000EE1BD6;
 			remoteInfo = GroceryList;
 		};
-		504DAEE720DE68E100EE1BD6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 504DAEBF20DE68E000EE1BD6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 504DAEC620DE68E000EE1BD6;
-			remoteInfo = GroceryList;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -69,8 +61,6 @@
 		504DAED620DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504DAEDB20DE68E100EE1BD6 /* GroceryListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		504DAEE120DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		504DAEE620DE68E100EE1BD6 /* GroceryListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		504DAEEC20DE68E100EE1BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509DE42820DFDD7F004E6DC2 /* CurrencyWorkerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyWorkerUnitTests.swift; sourceTree = "<group>"; };
 		509DE42A20DFE1CF004E6DC2 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		509DE42C20DFEF61004E6DC2 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
@@ -119,14 +109,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		504DAEE320DE68E100EE1BD6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				09B2A905532D3E87E36876E7 /* Pods_GroceryListUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,7 +151,6 @@
 			children = (
 				504DAEC920DE68E000EE1BD6 /* GroceryList */,
 				504DAEDE20DE68E100EE1BD6 /* GroceryListTests */,
-				504DAEE920DE68E100EE1BD6 /* GroceryListUITests */,
 				504DAEC820DE68E000EE1BD6 /* Products */,
 				22C2792FF971186D82876BCE /* Pods */,
 				56BE95B9489DCD9CFE322881 /* Frameworks */,
@@ -181,7 +162,6 @@
 			children = (
 				504DAEC720DE68E000EE1BD6 /* GroceryList.app */,
 				504DAEDB20DE68E100EE1BD6 /* GroceryListTests.xctest */,
-				504DAEE620DE68E100EE1BD6 /* GroceryListUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,14 +191,6 @@
 				5022BC8B20DE96EC00F30652 /* Scenes */,
 			);
 			path = GroceryListTests;
-			sourceTree = "<group>";
-		};
-		504DAEE920DE68E100EE1BD6 /* GroceryListUITests */ = {
-			isa = PBXGroup;
-			children = (
-				504DAEEC20DE68E100EE1BD6 /* Info.plist */,
-			);
-			path = GroceryListUITests;
 			sourceTree = "<group>";
 		};
 		504DAEF820DE6CB100EE1BD6 /* Plists */ = {
@@ -406,25 +378,6 @@
 			productReference = 504DAEDB20DE68E100EE1BD6 /* GroceryListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		504DAEE520DE68E100EE1BD6 /* GroceryListUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 504DAEF520DE68E100EE1BD6 /* Build configuration list for PBXNativeTarget "GroceryListUITests" */;
-			buildPhases = (
-				844ACCC85CE3F47F6109541D /* [CP] Check Pods Manifest.lock */,
-				504DAEE220DE68E100EE1BD6 /* Sources */,
-				504DAEE320DE68E100EE1BD6 /* Frameworks */,
-				504DAEE420DE68E100EE1BD6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				504DAEE820DE68E100EE1BD6 /* PBXTargetDependency */,
-			);
-			name = GroceryListUITests;
-			productName = GroceryListUITests;
-			productReference = 504DAEE620DE68E100EE1BD6 /* GroceryListUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -441,10 +394,6 @@
 					504DAEDA20DE68E100EE1BD6 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
-						TestTargetID = 504DAEC620DE68E000EE1BD6;
-					};
-					504DAEE520DE68E100EE1BD6 = {
-						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 504DAEC620DE68E000EE1BD6;
 					};
 				};
@@ -464,7 +413,6 @@
 			targets = (
 				504DAEC620DE68E000EE1BD6 /* GroceryList */,
 				504DAEDA20DE68E100EE1BD6 /* GroceryListTests */,
-				504DAEE520DE68E100EE1BD6 /* GroceryListUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -488,13 +436,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50DDF0D720DFC68500D167FA /* getCurrencyRates.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		504DAEE420DE68E100EE1BD6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,24 +472,6 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GroceryListTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		844ACCC85CE3F47F6109541D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GroceryListUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -635,13 +558,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		504DAEE220DE68E100EE1BD6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -649,11 +565,6 @@
 			isa = PBXTargetDependency;
 			target = 504DAEC620DE68E000EE1BD6 /* GroceryList */;
 			targetProxy = 504DAEDC20DE68E100EE1BD6 /* PBXContainerItemProxy */;
-		};
-		504DAEE820DE68E100EE1BD6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 504DAEC620DE68E000EE1BD6 /* GroceryList */;
-			targetProxy = 504DAEE720DE68E100EE1BD6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -876,48 +787,6 @@
 			};
 			name = Release;
 		};
-		504DAEF620DE68E100EE1BD6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABBDF56B85AB1F2BC08057B1 /* Pods-GroceryListUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
-				INFOPLIST_FILE = GroceryListUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GroceryList;
-			};
-			name = Debug;
-		};
-		504DAEF720DE68E100EE1BD6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08C222DDBA43DA01656646D1 /* Pods-GroceryListUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
-				INFOPLIST_FILE = GroceryListUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GroceryList;
-			};
-			name = Release;
-		};
 		50DDF0C220DFBF9F00D167FA /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1021,27 +890,6 @@
 			};
 			name = Test;
 		};
-		50DDF0C520DFBF9F00D167FA /* Test */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD7E0F92AADD45BB9326D98C /* Pods-GroceryListUITests.test.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4BSJH4LP2Q;
-				INFOPLIST_FILE = GroceryListUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.basselezzeddine.GroceryListUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GroceryList;
-			};
-			name = Test;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1071,16 +919,6 @@
 				504DAEF320DE68E100EE1BD6 /* Debug */,
 				50DDF0C420DFBF9F00D167FA /* Test */,
 				504DAEF420DE68E100EE1BD6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		504DAEF520DE68E100EE1BD6 /* Build configuration list for PBXNativeTarget "GroceryListUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				504DAEF620DE68E100EE1BD6 /* Debug */,
-				50DDF0C520DFBF9F00D167FA /* Test */,
-				504DAEF720DE68E100EE1BD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
