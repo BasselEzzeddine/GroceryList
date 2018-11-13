@@ -17,7 +17,7 @@ class BasketPresenterUnitTests: XCTestCase {
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
-        setupSUT()
+        setupSut()
     }
     
     override func tearDown() {
@@ -26,7 +26,7 @@ class BasketPresenterUnitTests: XCTestCase {
     }
     
     // MARK: - Setup
-    func setupSUT() {
+    func setupSut() {
         sut = BasketPresenter()
     }
     

@@ -12,14 +12,12 @@ import XCTest
 class BasketViewControllerUnitTests: XCTestCase {
     
     // MARK: - Properties
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     var sut: BasketViewController!
     
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
-        setupSUT()
-        UIApplication.shared.keyWindow?.rootViewController = sut
+        setupSut()
     }
     
     override func tearDown() {
@@ -28,8 +26,10 @@ class BasketViewControllerUnitTests: XCTestCase {
     }
     
     // MARK: - Setup
-    func setupSUT() {
+    func setupSut() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         sut = storyboard.instantiateViewController(withIdentifier: "BasketViewController") as? BasketViewController
+        UIApplication.shared.keyWindow?.rootViewController = sut
     }
     
     // MARK: - Spies

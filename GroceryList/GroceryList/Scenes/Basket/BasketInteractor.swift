@@ -49,7 +49,7 @@ class BasketInteractor {
         usdToGbp = quotes.usdToGbp
     }
     
-    func handleFetchFailure(_ serviceErrorType: ServiceErrorType) {
+    func handleFetchFailure(_ errorType: WorkerHelper.ErrorType) {
         presenter?.presentCurrenciesErrorMessage()
     }
 }
@@ -62,10 +62,10 @@ extension BasketInteractor: BasketInteractorIn {
             .subscribe(
                 onNext: { result in
                     switch result {
-                    case .Success(let rawCurrencyRates):
+                    case .success(let rawCurrencyRates):
                         self.handleFetchSuccess(rawCurrencyRates)
-                    case .Failure(let serviceErrorType):
-                        self.handleFetchFailure(serviceErrorType)
+                    case .failure(let errorType):
+                        self.handleFetchFailure(errorType)
                     }
             },
                 onError: { error in

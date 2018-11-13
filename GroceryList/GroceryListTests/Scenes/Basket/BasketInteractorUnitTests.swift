@@ -19,7 +19,7 @@ class BasketInteractorUnitTests: XCTestCase {
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
-        setupSUT()
+        setupSut()
     }
     
     override func tearDown() {
@@ -28,7 +28,7 @@ class BasketInteractorUnitTests: XCTestCase {
     }
     
     // MARK: - Setup
-    func setupSUT() {
+    func setupSut() {
         sut = BasketInteractor()
     }
     
@@ -62,11 +62,11 @@ class BasketInteractorUnitTests: XCTestCase {
     
     class CurrencyWorkerSpy: CurrencyWorker {
         var fetchRawCurrencyRatesCalled = false
-        var fromCurrencyPassed: CurrencyService.Currency?
-        var toCurrenciesPassed: [CurrencyService.Currency]?
-        var resultToBeReturned: ServiceResult<RawCurrencyRates>?
+        var fromCurrencyPassed: CurrencyWorker.Currency?
+        var toCurrenciesPassed: [CurrencyWorker.Currency]?
+        var resultToBeReturned: WorkerHelper.Result<RawCurrencyRates>?
         
-        override func fetchRawCurrencyRates(fromCurrency: CurrencyService.Currency, toCurrencies: [CurrencyService.Currency]) -> Observable<ServiceResult<RawCurrencyRates>> {
+        override func fetchRawCurrencyRates(fromCurrency: CurrencyWorker.Currency, toCurrencies: [CurrencyWorker.Currency]) -> Observable<WorkerHelper.Result<RawCurrencyRates>> {
             fetchRawCurrencyRatesCalled = true
             fromCurrencyPassed = fromCurrency
             toCurrenciesPassed = toCurrencies
@@ -127,7 +127,7 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.worker = workerSpy
         
         // When
-        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.failure(.invalidResponse)
         sut.fetchCurrencyRates()
         
         // Then
@@ -146,7 +146,7 @@ class BasketInteractorUnitTests: XCTestCase {
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         
@@ -164,7 +164,7 @@ class BasketInteractorUnitTests: XCTestCase {
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         
@@ -181,7 +181,7 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.presenter = presenterSpy
         
         // When
-        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidUrl)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.failure(.invalidUrl)
         
         sut.fetchCurrencyRates()
         
@@ -198,7 +198,7 @@ class BasketInteractorUnitTests: XCTestCase {
         sut.presenter = presenterSpy
         
         // When
-        workerSpy.resultToBeReturned = ServiceResult.Failure(.invalidResponse)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.failure(.invalidResponse)
         
         sut.fetchCurrencyRates()
         
@@ -213,7 +213,7 @@ class BasketInteractorUnitTests: XCTestCase {
         
         // When
         let rawCurrencyRatesMock = mockData.getRawCurrencyRatesMock()
-        workerSpy.resultToBeReturned = ServiceResult.Success(rawCurrencyRatesMock)
+        workerSpy.resultToBeReturned = WorkerHelper.Result.success(rawCurrencyRatesMock)
         
         sut.fetchCurrencyRates()
         

@@ -1,5 +1,5 @@
 //
-//  CurrencyServiceUnitTests.swift
+//  CurrencyWorkerUnitTests.swift
 //  GroceryListTests
 //
 //  Created by Bassel Ezzeddine on 24/06/2018.
@@ -10,16 +10,16 @@ import XCTest
 import RxBlocking
 @testable import GroceryList
 
-class CurrencyServiceTests: XCTestCase {
+class CurrencyWorkerTests: XCTestCase {
     
     // MARK: - Properties
-    var sut: CurrencyService!
+    var sut: CurrencyWorker!
     let mockServer = MockServer()
     
     // MARK: - XCTestCase
     override func setUp() {
         super.setUp()
-        setupSUT()
+        setupSut()
     }
     
     override func tearDown() {
@@ -29,22 +29,22 @@ class CurrencyServiceTests: XCTestCase {
     }
     
     // MARK: - Setup
-    func setupSUT() {
-        sut = CurrencyService()
+    func setupSut() {
+        sut = CurrencyWorker()
     }
     
     // MARK: - Tests
-    func testCallingFetchRawCurrencyRatesFromServer_ReturnsCorrectData_WhenThereIsNoError() {
+    func testCallingFetchRawCurrencyRates_ReturnsCorrectData_WhenThereIsNoError() {
         // Given
         mockServer.respondToGetCurrencyRatesWithSuccess()
         mockServer.start()
         
         // When
-        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
-        case .Success(let rawCurrencyRates):
+        case .success(let rawCurrencyRates):
             XCTAssertEqual(rawCurrencyRates.success, true)
             XCTAssertEqual(rawCurrencyRates.terms, "https://currencylayer.com/terms")
             XCTAssertEqual(rawCurrencyRates.privacy, "https://currencylayer.com/privacy")
@@ -52,43 +52,43 @@ class CurrencyServiceTests: XCTestCase {
             XCTAssertEqual(rawCurrencyRates.source, "USD")
             XCTAssertEqual(rawCurrencyRates.quotes?.usdToEur, 1.5)
             XCTAssertEqual(rawCurrencyRates.quotes?.usdToGbp, 2.0)
-        case .Failure(_):
+        case .failure(_):
             XCTFail()
         }
     }
     
-    func testCallingFetchRawCurrencyRatesFromServer_ReturnsCorrectData_WhenThereIsAnErrorInUrl() {
+    func testCallingFetchRawCurrencyRates_ReturnsCorrectData_WhenThereIsAnErrorInUrl() {
         // Given
         mockServer.respondToGetCurrencyRatesWithSuccess()
         mockServer.start()
         
         // When
         sut.currencyEndpoint = ""
-        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
-        case .Success(_):
+        case .success(_):
             XCTFail()
-        case .Failure(let serviceErrorType):
-            XCTAssertEqual(serviceErrorType, .invalidUrl)
+        case .failure(let workerErrorType):
+            XCTAssertEqual(workerErrorType, .invalidUrl)
         }
     }
     
-    func testCallingFetchRawCurrencyRatesFromServer_ReturnsCorrectData_WhenThereIsAnErrorInServerResponse() {
+    func testCallingFetchRawCurrencyRates_ReturnsCorrectData_WhenThereIsAnErrorInServerResponse() {
         // Given
         mockServer.respondToGetCurrencyRatesWithError()
         mockServer.start()
         
         // When
-        let result = try! sut.fetchRawCurrencyRatesFromServer(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
+        let result = try! sut.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp]).toBlocking(timeout: 1).first()
         
         // Then
         switch result! {
-        case .Success(_):
+        case .success(_):
             XCTFail()
-        case .Failure(let serviceErrorType):
-            XCTAssertEqual(serviceErrorType, .invalidResponse)
+        case .failure(let workerErrorType):
+            XCTAssertEqual(workerErrorType, .invalidResponse)
         }
     }
 }
