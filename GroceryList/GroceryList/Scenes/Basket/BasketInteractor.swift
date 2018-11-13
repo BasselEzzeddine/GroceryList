@@ -25,14 +25,14 @@ class BasketInteractor {
     
     // MARK: - Properties
     var presenter: BasketInteractorOut?
-    var worker = CurrencyWorker()
-    private let calculator = Calculator()
+    var worker: CurrencyWorker?
+    var calculator: Calculator?
     private let bag = DisposeBag()
     
-    let priceOfBagOfPeasInUsd: Double = 0.95
-    let priceOfDozenOfEggsInUsd: Double = 2.10
-    let priceOfBottleOfMilkInUsd: Double = 1.30
-    let priceOfCanOfBeansInUsd: Double = 0.73
+    private let priceOfBagOfPeasInUsd: Double = 0.95
+    private let priceOfDozenOfEggsInUsd: Double = 2.10
+    private let priceOfBottleOfMilkInUsd: Double = 1.30
+    private let priceOfCanOfBeansInUsd: Double = 0.73
     
     var usdToEur: Double = 0.0
     var usdToGbp: Double = 0.0
@@ -57,7 +57,7 @@ class BasketInteractor {
 // MARK: - BasketInteractorIn
 extension BasketInteractor: BasketInteractorIn {
     func fetchCurrencyRates() {
-        worker.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp])
+        worker?.fetchRawCurrencyRates(fromCurrency: .usd, toCurrencies: [.eur, .gbp])
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onNext: { result in
@@ -70,7 +70,7 @@ extension BasketInteractor: BasketInteractorIn {
             },
                 onError: { error in
                     self.handleFetchFailure(.invalidResponse)
-            }).disposed(by:bag)
+            }).disposed(by: bag)
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
@@ -85,7 +85,7 @@ extension BasketInteractor: BasketInteractorIn {
             conversionRateFromUsd = usdToGbp
         }
         
-        let total = calculator.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeasInUsd: priceOfBagOfPeasInUsd, priceOfDozenOfEggsInUsd: priceOfDozenOfEggsInUsd, priceOfBottleOfMilkInUsd: priceOfBottleOfMilkInUsd, priceOfCanOfBeansInUsd: priceOfCanOfBeansInUsd, conversionRateFromUsd: conversionRateFromUsd)
+        guard let total = calculator?.calculateTotalPriceOfBasket(bagsOfPeas: request.bagsOfPeasInBasket, dozensOfEggs: request.dozensOfEggsInBasket, bottlesOfMilk: request.bottlesOfMilkInBasket, cansOfBeans: request.cansOfBeansInBasket, priceOfBagOfPeasInUsd: priceOfBagOfPeasInUsd, priceOfDozenOfEggsInUsd: priceOfDozenOfEggsInUsd, priceOfBottleOfMilkInUsd: priceOfBottleOfMilkInUsd, priceOfCanOfBeansInUsd: priceOfCanOfBeansInUsd, conversionRateFromUsd: conversionRateFromUsd) else { return }
         let response = BasketModel.Checkout.Response(total: total)
         presenter?.presentTotal(response: response)
     }

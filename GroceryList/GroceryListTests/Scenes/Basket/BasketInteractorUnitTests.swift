@@ -77,6 +77,8 @@ class BasketInteractorUnitTests: XCTestCase {
     // MARK: - Tests
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsUsd() {
         // Given
+        sut.calculator = Calculator()
+        
         let presenterSpy = BasketPresenterSpy()
         sut.presenter = presenterSpy
         
@@ -91,6 +93,8 @@ class BasketInteractorUnitTests: XCTestCase {
     
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsEur() {
         // Given
+        sut.calculator = Calculator()
+        
         let presenterSpy = BasketPresenterSpy()
         sut.presenter = presenterSpy
         
@@ -107,6 +111,8 @@ class BasketInteractorUnitTests: XCTestCase {
     
     func testCallingCheckout_CallsPresentTotalInPresenter_WithCorrectData_WhenSelectedCurrencyIsGbp() {
         // Given
+        sut.calculator = Calculator()
+        
         let presenterSpy = BasketPresenterSpy()
         sut.presenter = presenterSpy
         

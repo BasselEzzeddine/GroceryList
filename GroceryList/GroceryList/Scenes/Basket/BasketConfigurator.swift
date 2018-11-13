@@ -26,6 +26,8 @@ class BasketConfigurator {
         
         let interactor = BasketInteractor()
         interactor.presenter = presenter
+        interactor.worker = CurrencyWorker()
+        interactor.calculator = Calculator()
         
         viewController.interactor = interactor
     }
