@@ -25,7 +25,7 @@ class BasketPresenter {
     
     // MARK: - Properties
     weak var viewController: BasketPresenterOut?
-    let timestamp = Timestamp()
+    private let timestamp = Timestamp()
 }
 
 // MARK: - BasketPresenterIn

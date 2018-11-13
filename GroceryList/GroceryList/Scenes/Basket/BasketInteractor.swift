@@ -27,7 +27,7 @@ class BasketInteractor {
     var presenter: BasketInteractorOut?
     var worker: CurrencyWorker?
     var calculator: Calculator?
-    private let bag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     private let priceOfBagOfPeasInUsd: Double = 0.95
     private let priceOfDozenOfEggsInUsd: Double = 2.10
@@ -70,7 +70,7 @@ extension BasketInteractor: BasketInteractorIn {
             },
                 onError: { error in
                     self.handleFetchFailure(.invalidResponse)
-            }).disposed(by: bag)
+            }).disposed(by: disposeBag)
     }
     
     func checkout(request: BasketModel.Checkout.Request) {
